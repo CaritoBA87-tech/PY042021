@@ -6,13 +6,11 @@ nav{
     height: 70px;
     padding: 0px 20px 0 0px;
     display: flex;/*Para que los elementos hijos de nav se comporten de manera flexible*/
-    justify-content: space-between;  /*Justifica el contenido a lo largo del elemento*/
-    align-items:center;
+    flex-direction:row; /*Organiza los items en fila*/
+    justify-content:space-evenly;  /*Justifica el contenido a lo largo del elemento*/
+    align-items:center;  /*Alineación vertical de los items*/
 }
 
-/*nav > a{
-    color: white;
-}*/
 
 .parrafos-home{
     color: lightgreen;
@@ -20,3 +18,37 @@ nav{
     font-weight: bold;
     font-size: 20px;
 }
+
+/*Imagen de portada que abarca el 70% de la pantalla usando <img>*/
+#logo{
+    display: block; /*Para centrar una imagen con margin-left la usamos como bloque (por default es inline)*/
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+} 
+
+/*Imagen de portada que abarca el 70% de la pantalla usando  background-image en css*/
+/*#image{
+    background-image: url("/assets/images/yoga.jpg");
+    background-repeat: no-repeat;
+    background-position-x:50%;
+    background-size: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 470px;
+    width: 70%;
+}  */
+
+#fixed{
+    position: fixed; /*Posiciona el elemento con respecto al navegador*/
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*Centra el elemento en el navegador*/
+}
+
+#sticky{
+    position: sticky; /*El elemento se queda inmóvil cuando desplazamos el scroll. Se queda inmovil en la posición de top y left*/
+    top:30px;
+    left: 200px ;
+}
+
