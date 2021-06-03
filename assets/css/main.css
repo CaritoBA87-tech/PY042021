@@ -28,16 +28,20 @@ nav{
 } 
 
 /*Imagen de portada que abarca el 70% de la pantalla usando  background-image en css*/
-/*#image{
+#image{
     background-image: url("/assets/images/yoga.jpg");
     background-repeat: no-repeat;
-    background-position-x:50%;
-    background-size: 100%;
+    background-position-x:center center;
+    background-size:100% 100%;
     margin-left: auto;
     margin-right: auto;
     height: 470px;
     width: 70%;
-}  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+
 
 #fixed{
     position: fixed; /*Posiciona el elemento con respecto al navegador*/
