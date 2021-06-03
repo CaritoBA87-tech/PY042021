@@ -29,7 +29,7 @@ nav{
 
 /*Imagen de portada que abarca el 70% de la pantalla usando  background-image en css*/
 #image{
-    background-image: url("/assets/images/yoga.jpg");
+    background-image: url("../images/yoga.jpg");
     background-repeat: no-repeat;
     background-position-x:center center;
     background-size:100% 100%;
