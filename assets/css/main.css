@@ -11,6 +11,12 @@ nav{
     align-items:center;  /*Alineación vertical de los items*/
 }
 
+/*El menú se reacomoda en columnas si la pantalla es pequeña*/
+@media all and (max-width: 770px) {
+    nav {
+      flex-flow: column wrap;
+    }
+  }
 
 .parrafos-home{
     color: lightgreen;
@@ -26,7 +32,7 @@ nav{
     margin-right: auto;
     width: 70%;
 } 
-
+  
 /*Imagen de portada que abarca el 70% de la pantalla usando  background-image en css*/
 #image{
     background-image: url("../images/yoga.jpg");
@@ -41,7 +47,6 @@ nav{
     justify-content: center;
     align-items: center;
 }  
-
 
 #fixed{
     position: fixed; /*Posiciona el elemento con respecto al navegador*/
