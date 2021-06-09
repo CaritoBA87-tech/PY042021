@@ -1,7 +1,6 @@
 nav{
     background-color: black;
-    font-size: 18px;
-    font-family: sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
     height: 70px;
     padding: 0px 20px 0 0px;
@@ -22,7 +21,7 @@ nav{
     color: lightgreen;
     text-decoration: none;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 /*Imagen de portada que abarca el 70% de la pantalla usando <img>*/
@@ -41,11 +40,11 @@ nav{
     background-size:100% 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 470px;
+    height: 350px;
     width: 70%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 }  
 
 #fixed{
@@ -61,3 +60,39 @@ nav{
     left: 200px ;
 }
 
+/*Cards*/
+
+#cards{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content:space-around;
+    width: 95%;
+}
+
+.card{
+  flex-grow: 1;
+  margin: 10px;
+  background-color:	#F5F5F5;
+  flex-basis: 25%; 
+  display: flex;
+  flex-direction: column;
+}
+
+.card img{
+    align-self: center;
+}
+
+.card h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #4B8A08;
+    text-align: center;
+    font-size: 14px;
+}
+
+.card p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    color:purple;
+    text-align: center;
+} 
