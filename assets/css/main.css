@@ -21,7 +21,7 @@ nav{
     color: lightgreen;
     text-decoration: none;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 19px;
 }
 
 /*Imagen de portada que abarca el 70% de la pantalla usando <img>*/
@@ -87,12 +87,13 @@ nav{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #4B8A08;
     text-align: center;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .card p{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 13px;
+    font-size: 17px;
     color:purple;
     text-align: center;
+    font-weight: bold;
 } 
