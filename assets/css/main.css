@@ -10,13 +10,6 @@ nav{
     align-items:center;  /*Alineación vertical de los items*/
 }
 
-/*El menú se reacomoda en columnas si la pantalla es pequeña*/
-@media all and (max-width: 770px) {
-    nav {
-      flex-flow: column wrap;
-    }
-  }
-
 .parrafos-home{
     color: lightgreen;
     text-decoration: none;
@@ -43,8 +36,9 @@ nav{
     height: 350px;
     width: 70%;
     display: flex;
-    justify-content: center;
-    align-items: center; 
+    justify-content:center; /*Alinea horizontal*/
+    align-items: center;  /*Alinea vertical*/
+
 }  
 
 #fixed{
@@ -71,13 +65,15 @@ nav{
 }
 
 .card{
-  flex-grow: 1;
+  /*flex-grow: 1;*/
   margin: 10px;
   background-color:	#F5F5F5;
-  flex-basis: 25%; 
+  /*flex-basis:25%;*/
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 320px;
+
+  width: 23%;
 }
 
 .card img{
@@ -112,7 +108,6 @@ nav{
     row-gap: 10px;
     border: solid 1px black;
     background-color: gainsboro;
-
 }
 
 .day{
@@ -192,5 +187,163 @@ nav{
     grid-column: 5/6;
     grid-row: 7 / 8;
 }
+
+
+/*--Diseño responsivo--*/
+
+/* ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops */
+@media (min-width: 1281px) {
+    body{
+        background-color: greenyellow;
+    }
+  }
+
+  @media (min-width: 1025px) and (max-width: 1280px) {
+  
+    body{
+        background-color: blueviolet;
+    }
+
+    #image h1{
+        font-size: 27px;
+     }
+
+    .card h2{
+        font-size: 17px;
+    }
+
+    .card p{
+        font-size: 14px;
+    }
+
+    #horario{
+        width: 80%;
+    }   
+
+    .day{
+        font-size: 15px;
+    }
+
+    .clase{
+        font-size: 14px;
+    }
+  }
+
+/* ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    body{
+        background-color: red;
+    }
+
+      .parrafos-home{
+          font-size: 16px;
+      }
+
+      #image h1{
+        font-size: 25px;
+     }
+
+    #cards{
+        flex-wrap:  wrap;
+      }
+
+      .card{
+          width: 45%;
+      }
+
+      .card h2{
+        font-size: 18px;
+    }
+
+    .card p{
+        font-size: 15px;
+    }
+
+      #horario{
+        column-gap: 0px;
+        row-gap: 0px;
+      }
+
+      #horario{
+        width: 90%;
+    }
+
+    .day{
+        font-size: 15px;
+    }
+
+    .clase{
+    font-size: 13px;
+    }
+
+  }
+
+  /* ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px */
+  @media (min-width: 481px) and (max-width: 767px) {
+    body{
+        background-color: yellow;
+    }
+
+    #image h1{
+       font-size: 20px;
+    }
+
+    nav {
+        flex-flow: column wrap;
+      }
+
+      .parrafos-home{
+          font-size: 15px;
+      }   
+
+      #cards{
+        flex-wrap:  wrap;
+      }
+
+      .card{
+          width: 90%;
+      }
+
+
+      #horario{
+        column-gap: 0px;
+        row-gap: 0px;
+        width: 100%;
+      }
+
+      .day{
+        font-size: 14px;
+    }
+
+    .clase{
+    font-size: 12px;
+    }
+
+    .card img{
+        height:60%;
+    }
+
+    .card h2{
+        font-size: 17px;
+    }
+
+    .card p{
+        font-size: 14px;
+    }
+  }
+
+
+  @media (min-width: 320px) and (max-width: 480px) {
+  
+    body{
+        background-color: pink;
+    }
+
+    
+  }
 
 
