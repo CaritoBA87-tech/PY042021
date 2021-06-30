@@ -1,0 +1,406 @@
+@import "mixins"; /*Importa el partial _mixins.scss*/
+
+/*Declaración de variables con sass*/
+$dark-color:black;
+$light-color:yellowgreen;
+$primary-text-color: #4B8A08;
+$secondary-text-color: purple;
+
+$sm: 15px;
+$md: 17px;
+$lg:20px;
+$xlg: 26px;
+
+$font:Verdana, Geneva, Tahoma, sans-serif;
+
+nav{
+    background-color: $dark-color;
+    font-family:$font;
+    @include fijarTamano(100%, 50px);
+    padding: 0px 20px 0 0px;
+    @include flex($justify: space-around, $align: center); /*Llama al mixin flex*/
+}
+
+.parrafos-home{
+    color: lightgreen;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+/*Imagen de portada que abarca el 70% de la pantalla usando <img>*/
+#logo{
+    display: block; /*Para centrar una imagen con margin-left la usamos como bloque (por default es inline)*/
+    @include centrar();
+    width: 30%;
+} 
+  
+/*Imagen de portada que abarca el 70% de la pantalla usando  background-image en css*/
+#image{
+    @include imagenFondo("../images/yoga.jpg", no-repeat, center center, 100% 100%);
+    @include fijarTamano(70%, 350px);
+    @include centrar();
+    @include flex();
+}  
+
+#fixed{
+    position: fixed; /*Posiciona el elemento con respecto al navegador*/
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*Centra el elemento en el navegador*/
+}
+
+#sticky{
+    position: sticky; /*El elemento se queda inmóvil cuando desplazamos el scroll. Se queda inmovil en la posición de top y left*/
+    top:30px;
+    left: 200px ;
+}
+
+/*Cards*/
+
+#cards{
+    @include centrar();
+    @include flex($justify: space-around);
+    width: 95%;
+}
+
+.card{
+  margin: 10px;
+  background-color:	#F5F5F5;
+  @include flex($direction: column);
+  @include fijarTamano(23%, 320px);
+}
+
+/*Anidación sass*/
+
+.card{
+    img{
+        align-self: center;
+    }
+
+    h2{
+        font-family: $font;
+        color: $primary-text-color;
+        text-align: center;
+        font-size: $lg;
+    }
+
+    p{
+        font-family: $font;
+        font-size: $md;
+        color:   $secondary-text-color;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+/*Horario*/
+
+#horario{
+    @include grid(repeat(5, 1fr), repeat(7, 1fr),10px, 10px);
+    @include centrar();
+    width: 70%;
+    border: solid 1px black;
+    background-color: gainsboro;
+}
+
+
+/*Inheritance*/
+%day-format{
+    padding :10px;
+    font-family: $font;
+    font-size: $lg;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.day:nth-of-type(1) {@extend %day-format; background-color: #5499C7 ;}
+.day:nth-of-type(2) {@extend %day-format; background-color: #F1C40F  ;}
+.day:nth-of-type(3) {@extend %day-format; background-color: #AF7AC5 ;}
+.day:nth-of-type(4) {@extend %day-format; background-color: #27AE60 ;}
+.day:nth-of-type(5) {@extend %day-format; background-color: palevioletred ;}
+
+/*Inheritance*/
+%clase{
+    font-family: $font;
+    text-align: center;
+    background-color:$light-color;
+    border: dashed 2px gainsboro;
+    font-size: $sm;
+}
+
+.clase-1{
+    @extend %clase;
+    @include posicionarengrid(1, 2, 3, 4); 
+}
+
+.clase-2{
+    @extend %clase;
+    @include posicionarengrid(2, 3, 2, 4); 
+}
+
+.clase-3{
+    @extend %clase;
+    @include posicionarengrid(3, 4, 3, 4); 
+}
+
+.clase-4{
+    @extend %clase;
+    @include posicionarengrid(4, 5, 2, 4); 
+}
+
+.clase-5{
+    @extend %clase;
+    @include posicionarengrid(5, 6, 4, 6); 
+}
+
+.clase-6{
+    @extend %clase;
+    @include posicionarengrid(1, 2, 7, 9); 
+}
+
+.clase-7{
+    @extend %clase;
+    @include posicionarengrid(2, 3, 6, 8); 
+}
+
+.clase-8{
+    @extend %clase;
+    @include posicionarengrid(3, 4, 7, 8); 
+}
+
+.clase-9{
+    @extend %clase;
+    @include posicionarengrid(3, 4, 8, 9); 
+}
+
+.clase-10{
+    @extend %clase;
+    @include posicionarengrid(4, 5, 6, 8); 
+}
+
+.clase-11{
+    @extend %clase;
+    @include posicionarengrid(5, 6, 7, 8); 
+}
+
+
+/*--Diseño responsivo--*/
+
+/* ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops */
+@media (min-width: 1281px) {
+    body{
+        background-color: greenyellow;
+    }
+  }
+
+  @media (min-width: 1025px) and (max-width: 1280px) {
+  
+    body{
+        background-color: blueviolet;
+    }
+
+    /*Anidación sass*/
+    
+     #image{
+         h1{
+            font-size: 26px;
+         }
+     }
+
+     .card{
+         h2{
+            font-size: $md;
+         }
+         p{
+            font-size: 14px;
+         }
+     }
+
+    #horario{
+        width: 80%;
+    }   
+
+    .day{
+        font-size: $sm;
+    }
+
+    .clase{
+        font-size: 14px;
+    }
+  }
+
+/* ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px */
+@media (min-width: 768px) /*and (max-width: 1024px)*/ { /*Quitar and (max-width: 1024px) y probar en el ipad */
+
+    body{
+        background-color: red;
+    }
+
+    .parrafos-home{
+        font-size: 16px;
+    }
+
+    /*Anidación sass*/
+    
+    #image{
+        h1{
+           font-size: 25px;
+        }
+    }
+
+    #cards{
+        flex-wrap:  wrap;
+      }
+
+      .card{
+          width: 45%;
+      }
+
+      /*Anidación sass*/
+      .card {
+          h2{
+            font-size: 18px;
+          }
+          p{
+            font-size: $sm;
+          }
+      }
+
+      #horario{
+        column-gap: 0px;
+        row-gap: 0px;
+      }
+
+      #horario{
+        width: 90%;
+    }
+
+    .day{
+        font-size: $sm;
+    }
+
+    .clase{
+    font-size: 13px;
+    }
+
+  }
+
+  /* ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px */
+  @media (min-width: 481px) and (max-width: 767px) {
+    body{
+        background-color: yellow;
+    }
+
+    #image{
+        height: 250px;
+    }
+
+    /*Anidación sass*/
+    #image {
+        h1{
+            font-size: $lg;
+        }
+    }
+    
+    nav {
+        flex-flow: column wrap;
+      }
+
+      .parrafos-home{
+          font-size: $sm;
+      }   
+
+      #cards{
+        flex-wrap:  wrap;
+      }
+
+      .card{
+          width: 90%;
+      }
+
+
+      #horario{
+        column-gap: 0px;
+        row-gap: 0px;
+        width: 100%;
+      }
+
+      .day{
+        font-size: 14px;
+    }
+
+    .clase{
+    font-size: 12px;
+    }
+
+    /*Anidación sass*/
+
+    .card{
+        img{
+            @include fijarTamano(70%, 60%);
+        }
+        h2{
+            font-size:  $md;
+        }
+        p{
+            font-size: 14px;
+        }
+    }
+  }
+
+
+  @media (min-width: 320px) and (max-width: 480px) {
+  
+    body{
+        background-color: pink;
+    }
+
+    nav{
+        @include fijarTamano(100%, 40%);
+        flex-flow: column;
+    }
+
+    
+    .parrafos-home{
+        font-size: 16px;
+        padding: 6px;
+    } 
+    
+    #image{
+        height: 190px;
+    }
+
+    /*Anidación sass*/
+    #image {
+        h1{
+            font-size:  $md;
+        }
+    }
+     
+     #cards{
+        flex-wrap:  wrap;
+      }
+
+      .card{
+          width: 90%;
+      }
+
+      #horario{
+        display: none;
+      }
+
+    /*Anidación sass*/
+    .card{
+        h2{
+            font-size: $sm; 
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+  }
