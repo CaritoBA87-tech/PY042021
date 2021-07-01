@@ -1,406 +1,393 @@
-@import "mixins"; /*Importa el partial _mixins.scss*/
+@import "variables";
+@import "mixins"; 
+@import "inheritance"; 
 
-/*Declaración de variables con sass*/
-$dark-color:black;
-$light-color:yellowgreen;
-$primary-text-color: #4B8A08;
-$secondary-text-color: purple;
-
-$sm: 15px;
-$md: 17px;
-$lg:20px;
-$xlg: 26px;
-
-$font:Verdana, Geneva, Tahoma, sans-serif;
+body{
+    background-color: $opacity_color;
+}
 
 nav{
-    background-color: $dark-color;
-    font-family:$font;
+    background-color:$dark_color;
+    font-family:$primary_font;
     @include fijarTamano(100%, 50px);
+    @include displayFlex($justify: space-around, $align: center); 
     padding: 0px 20px 0 0px;
-    @include flex($justify: space-around, $align: center); /*Llama al mixin flex*/
 }
 
 .parrafos-home{
-    color: lightgreen;
+    color: white;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 19px;
+    font-size: 21px;
 }
 
-/*Imagen de portada que abarca el 70% de la pantalla usando <img>*/
-#logo{
-    display: block; /*Para centrar una imagen con margin-left la usamos como bloque (por default es inline)*/
-    @include centrar();
-    width: 30%;
-} 
-  
 /*Imagen de portada que abarca el 70% de la pantalla usando  background-image en css*/
 #image{
-    @include imagenFondo("../images/yoga.jpg", no-repeat, center center, 100% 100%);
-    @include fijarTamano(70%, 350px);
+    @include imagenFondo("../images/buda.jpg", no-repeat, center center, 100% 100%);
+    @include fijarTamano(70%, 450px);
+    @include displayFlex(column);
     @include centrar();
-    @include flex();
-}  
 
-#fixed{
-    position: fixed; /*Posiciona el elemento con respecto al navegador*/
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /*Centra el elemento en el navegador*/
-}
+    span:nth-of-type(1){
+        background-color:rgba(white, 0.8); 
+        color: $secondary_color;
+        font: {
+            family:$secondary_font;
+            size: 37px;
+            weight: bold;
+        }
+    }
 
-#sticky{
-    position: sticky; /*El elemento se queda inmóvil cuando desplazamos el scroll. Se queda inmovil en la posición de top y left*/
-    top:30px;
-    left: 200px ;
+    span:nth-of-type(2){
+        background-color:rgba($primary_color, 0.7); 
+        color:white ; 
+        font: {
+            family: $optional_font; 
+            size: 28px; 
+        }
+    }
 }
 
 /*Cards*/
 
-#cards{
+#cardsContainer{
     @include centrar();
-    @include flex($justify: space-around);
+    @include displayFlex($justify: space-around);
     width: 95%;
 }
 
 .card{
-  margin: 10px;
-  background-color:	#F5F5F5;
-  @include flex($direction: column);
-  @include fijarTamano(23%, 320px);
-}
+    margin: 10px;
+    background-color:#F5F5F5;
+    @include displayFlex($direction: column);
+    @include fijarTamano(23%, 320px);
+    padding-top: 1%;
+    border: dashed 1px crimson;
 
-/*Anidación sass*/
-
-.card{
     img{
         align-self: center;
+        @include fijarTamano(80%, 50%);
     }
 
     h2{
-        font-family: $font;
-        color: $primary-text-color;
+        color: $primary_color;
         text-align: center;
-        font-size: $lg;
+        font: {
+            family:$primary_font;
+            size: 25px;
+        }
     }
 
     p{
-        font-family: $font;
-        font-size: $md;
-        color:   $secondary-text-color;
+        color:$dark_color;
         text-align: center;
-        font-weight: bold;
-    }
+        padding: 0px 10px;
+        font: {
+            family: $secondary_font;
+            size: 17px;
+            weight: bold;
+        }
+    } 
 }
 
 /*Horario*/
 
-#horario{
-    @include grid(repeat(5, 1fr), repeat(7, 1fr),10px, 10px);
-    @include centrar();
+#schedule{
     width: 70%;
-    border: solid 1px black;
-    background-color: gainsboro;
+    @include centrar();
+    border: solid 1px gray;
+    background-color: #F5F5F5;
+    @include displayGrid(repeat(5, 1fr), repeat(7, 1fr),10px, 10px);
 }
 
-
-/*Inheritance*/
-%day-format{
+.day{
     padding :10px;
-    font-family: $font;
-    font-size: $lg;
     text-align: center;
     color: white;
-    font-weight: bold;
+    font: {
+        family: $primary_font;
+        size: 24px;
+        weight: bold;
+    }
 }
 
-.day:nth-of-type(1) {@extend %day-format; background-color: #5499C7 ;}
-.day:nth-of-type(2) {@extend %day-format; background-color: #F1C40F  ;}
-.day:nth-of-type(3) {@extend %day-format; background-color: #AF7AC5 ;}
-.day:nth-of-type(4) {@extend %day-format; background-color: #27AE60 ;}
-.day:nth-of-type(5) {@extend %day-format; background-color: palevioletred ;}
+.day:nth-of-type(1) {background-color: $primary_color;}
+.day:nth-of-type(2) {background-color: $combine_color ;}
+.day:nth-of-type(3) {background-color:$primary_color ;}
+.day:nth-of-type(4) {background-color: $combine_color  ;}
+.day:nth-of-type(5) {background-color:$primary_color ;}
 
-/*Inheritance*/
-%clase{
-    font-family: $font;
-    text-align: center;
-    background-color:$light-color;
-    border: dashed 2px gainsboro;
-    font-size: $sm;
+#session-1{
+    @extend %session;
+    @include posicionarEnGrid(1, 2, 3, 4); 
 }
 
-.clase-1{
-    @extend %clase;
-    @include posicionarengrid(1, 2, 3, 4); 
+#session-2{
+    @extend %session;
+    @include posicionarEnGrid(2, 3, 2, 4); 
 }
 
-.clase-2{
-    @extend %clase;
-    @include posicionarengrid(2, 3, 2, 4); 
+#session-3{
+    @extend %session;
+    @include posicionarEnGrid(3, 4, 3, 4); 
 }
 
-.clase-3{
-    @extend %clase;
-    @include posicionarengrid(3, 4, 3, 4); 
+#session-4{
+    @extend %session;
+    @include posicionarEnGrid(4, 5, 2, 4); 
 }
 
-.clase-4{
-    @extend %clase;
-    @include posicionarengrid(4, 5, 2, 4); 
+#session-5{
+    @extend %session;
+    @include posicionarEnGrid(5, 6, 4, 6); 
 }
 
-.clase-5{
-    @extend %clase;
-    @include posicionarengrid(5, 6, 4, 6); 
+#session-6{
+    @extend %session;
+    @include posicionarEnGrid(1, 2, 7, 9); 
 }
 
-.clase-6{
-    @extend %clase;
-    @include posicionarengrid(1, 2, 7, 9); 
+#session-7{
+    @extend %session;
+    @include posicionarEnGrid(2, 3, 6, 8); 
 }
 
-.clase-7{
-    @extend %clase;
-    @include posicionarengrid(2, 3, 6, 8); 
+#session-8{
+    @extend %session;
+    @include posicionarEnGrid(3, 4, 7, 8); 
 }
 
-.clase-8{
-    @extend %clase;
-    @include posicionarengrid(3, 4, 7, 8); 
+#session-9{
+    @extend %session;
+    @include posicionarEnGrid(3, 4, 8, 9); 
 }
 
-.clase-9{
-    @extend %clase;
-    @include posicionarengrid(3, 4, 8, 9); 
+#session-10{
+    @extend %session;
+    @include posicionarEnGrid(4, 5, 6, 8); 
 }
 
-.clase-10{
-    @extend %clase;
-    @include posicionarengrid(4, 5, 6, 8); 
-}
-
-.clase-11{
-    @extend %clase;
-    @include posicionarengrid(5, 6, 7, 8); 
-}
+#session-11{
+    @extend %session;
+    @include posicionarEnGrid(5, 6, 7, 8); 
+} 
 
 
 /*--Diseño responsivo--*/
 
 /* ##Device = Desktops
-  ##Screen = 1281px to higher resolution desktops */
+   ##Screen = 1281px to higher resolution desktops */
+
 @media (min-width: 1281px) {
-    body{
-        background-color: greenyellow;
+
+}
+
+/* ##Device = Laptops, Desktops
+   ##Screen = B/w 1025px to 1280px */
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    #image {
+
+        height: 370px;
+
+        span:nth-of-type(1){
+            font-size: 35px;
+        }
+
+        span:nth-of-type(2){
+            font-size: 25px;
+        }
     }
-  }
 
-  @media (min-width: 1025px) and (max-width: 1280px) {
-  
-    body{
-        background-color: blueviolet;
+    .parrafos-home{
+        font-size: 20px;
     }
 
-    /*Anidación sass*/
-    
-     #image{
-         h1{
-            font-size: 26px;
-         }
-     }
+    .card{
+        h2{
+            font-size: 17px;
+        }
 
-     .card{
-         h2{
-            font-size: $md;
-         }
-         p{
+        p{
             font-size: 14px;
-         }
-     }
+        }   
+    }
 
-    #horario{
+    #schedule{
         width: 80%;
     }   
 
     .day{
-        font-size: $sm;
+        font-size: 15px;
     }
 
-    .clase{
+    .session{
         font-size: 14px;
     }
-  }
+}
 
-/* ##Device = Tablets, Ipads (landscape)
-  ##Screen = B/w 768px to 1024px */
-@media (min-width: 768px) /*and (max-width: 1024px)*/ { /*Quitar and (max-width: 1024px) y probar en el ipad */
+/* ##Device = Tablets, Ipads (portrait)
+   ##Screen = B/w 768px to 1024px */
 
-    body{
-        background-color: red;
-    }
+@media (min-width: 768px) and (max-width: 1024px) {
 
     .parrafos-home{
-        font-size: 16px;
+        font-size: 18px;
     }
 
-    /*Anidación sass*/
-    
     #image{
-        h1{
-           font-size: 25px;
+        height: 350px;
+
+        span:nth-of-type(1){
+            font-size: 32px;
+        }
+
+        span:nth-of-type(2){
+            font-size: 20px;
         }
     }
 
-    #cards{
+    #cardsContainer{
         flex-wrap:  wrap;
-      }
+    }
+    
+    .card{
+        width: 45%;
 
-      .card{
-          width: 45%;
-      }
-
-      /*Anidación sass*/
-      .card {
-          h2{
+        h2{
             font-size: 18px;
-          }
-          p{
-            font-size: $sm;
-          }
-      }
+        }
 
-      #horario{
+        p{
+            font-size: 15px;
+        }
+
+        img{
+            width:75%;
+        }
+    }
+
+    #schedule{
         column-gap: 0px;
         row-gap: 0px;
-      }
-
-      #horario{
         width: 90%;
     }
 
     .day{
-        font-size: $sm;
+        font-size: 15px;
     }
 
-    .clase{
-    font-size: 13px;
+    .session{
+        font-size: 13px;
+        border: dashed 1px gray;
     }
 
-  }
+}
 
   /* ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 481px to 767px */
-  @media (min-width: 481px) and (max-width: 767px) {
-    body{
-        background-color: yellow;
-    }
+     ##Screen = B/w 481px to 767px */
+
+@media (min-width: 481px) and (max-width: 767px) {
 
     #image{
-        height: 250px;
-    }
+        height: 270px;
 
-    /*Anidación sass*/
-    #image {
-        h1{
-            font-size: $lg;
+        span:nth-of-type(1){
+            font-size: 22px;
+        }
+
+        span:nth-of-type(2){
+            font-size: 15px;
         }
     }
-    
+
     nav {
         flex-flow: column wrap;
-      }
+    }
 
-      .parrafos-home{
-          font-size: $sm;
-      }   
+    .parrafos-home{
+        font-size: 16px;
+    }   
 
-      #cards{
+    #cardsContainer{
         flex-wrap:  wrap;
-      }
+    }
 
-      .card{
-          width: 90%;
-      }
-
-
-      #horario{
+    #schedule{
         column-gap: 0px;
         row-gap: 0px;
         width: 100%;
-      }
+    }
 
-      .day{
+    .day{
         font-size: 14px;
     }
 
-    .clase{
-    font-size: 12px;
+    .session{
+        font-size: 12px;
+        border: dashed 1px gray;
     }
 
-    /*Anidación sass*/
-
     .card{
+        width: 90%;
+
         img{
-            @include fijarTamano(70%, 60%);
+            @include fijarTamano(60%, 60%);
         }
+
         h2{
-            font-size:  $md;
+            font-size: 17px;
         }
+
         p{
             font-size: 14px;
         }
     }
-  }
+}
 
-
-  @media (min-width: 320px) and (max-width: 480px) {
-  
-    body{
-        background-color: pink;
-    }
+/* ##Device = Most of the Smartphones Mobiles (Portrait)
+   ##Screen = B/w 320px to 479px */
+@media (min-width: 320px) and (max-width: 480px) {
 
     nav{
         @include fijarTamano(100%, 40%);
         flex-flow: column;
     }
 
-    
     .parrafos-home{
-        font-size: 16px;
+        font-size: 14px;
         padding: 6px;
     } 
     
     #image{
         height: 190px;
-    }
 
-    /*Anidación sass*/
-    #image {
-        h1{
-            font-size:  $md;
+        span:nth-of-type(1){
+            font-size: 14px;
+        }
+
+        span:nth-of-type(2){
+            font-size: 11px;
         }
     }
-     
-     #cards{
+ 
+    #cardsContainer{
         flex-wrap:  wrap;
-      }
+    }
 
-      .card{
-          width: 90%;
-      }
-
-      #horario{
+    #schedule{
         display: none;
-      }
-
-    /*Anidación sass*/
+    }
+    
     .card{
+        width: 90%;
+
         h2{
-            font-size: $sm; 
+            font-size: 15px;
         }
+        
         p{
             font-size: 12px;
         }
     }
-  }
+}
