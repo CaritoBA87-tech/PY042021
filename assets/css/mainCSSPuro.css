@@ -1,7 +1,11 @@
+body{
+    background-color: gainsboro;
+}
+/*Barra de navegación*/
 
 nav{
-    background-color: black;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color:#2C3E50 ;
+    font-family:monospace;
     width: 100%;
     height: 50px;
     padding: 0px 20px 0 0px;
@@ -12,52 +16,47 @@ nav{
 }
 
 .parrafos-home{
-    color: lightgreen;
+    color: white;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 19px;
+    font-size: 21px;
 }
 
-/*Imagen de portada que abarca el 70% de la pantalla usando <img>*/
-#logo{
-    display: block; /*Para centrar una imagen con margin-left la usamos como bloque (por default es inline)*/
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-} 
-  
 /*Imagen de portada que abarca el 70% de la pantalla usando  background-image en css*/
 #image{
-    background-image: url("../images/yoga.jpg");
+    background-image: url("../images/buda.jpg");
     background-repeat: no-repeat;
     background-position-x:center center;
     background-size:100% 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 350px;
+    height: 450px;
     width: 70%;
     display: flex;
+    flex-direction: column;
     justify-content:center; /*Alinea horizontal*/
     align-items: center;  /*Alinea vertical*/
-
 }  
 
-#fixed{
-    position: fixed; /*Posiciona el elemento con respecto al navegador*/
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /*Centra el elemento en el navegador*/
+/*Texto en la imagen de portada*/
+
+#image span:nth-of-type(1){
+    background-color:rgba(255,255,255, 0.8); 
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    font-size: 37px; 
+    color: #BA41A8;
+    font-weight: bold;
 }
 
-#sticky{
-    position: sticky; /*El elemento se queda inmóvil cuando desplazamos el scroll. Se queda inmovil en la posición de top y left*/
-    top:30px;
-    left: 200px ;
+#image span:nth-of-type(2){
+    background-color:rgba(25,137,159, 0.7); 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+    font-size: 28px; 
+    color:white ; 
 }
 
 /*Cards*/
 
-#cards{
+#cardsContainer{
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -66,149 +65,175 @@ nav{
 }
 
 .card{
-  /*flex-grow: 1;*/
-  margin: 10px;
-  background-color:	#F5F5F5;
-  /*flex-basis:25%;*/
-  display: flex;
-  flex-direction: column;
-  height: 320px;
-
-  width: 23%;
+    margin: 10px;
+    background-color:#F5F5F5;
+    display: flex;
+    flex-direction: column;
+    height: 320px;
+    padding-top: 1%;
+    width: 23%;
+    border: solid 1px #B7950B;
 }
 
 .card img{
     align-self: center;
+    width:80%;
+    height:50%;
 }
 
 .card h2{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #4B8A08;
+    font-family:monospace;
+    color: #19899F;
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .card p{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 17px;
-    color:purple;
+    color:#2C3E50;
     text-align: center;
     font-weight: bold;
+    padding: 0px 10px;
 } 
 
 /*Horario*/
 
-#horario{
-    display: grid;
+#schedule{
     width: 70%;
     margin-left: auto;
     margin-right: auto;
+    border: solid 1px gainsboro;
+    background-color: white;
+    display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(7, 1fr);
     column-gap: 10px;
     row-gap: 10px;
-    border: solid 1px black;
-    background-color: gainsboro;
 }
 
 .day{
     padding :10px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 22px;
+    font-family: monospace;
+    font-size: 24px;
     text-align: center;
     color: white;
     font-weight: bold;
 }
 
-.day:nth-of-type(1) {background-color: #5499C7 ;}
-.day:nth-of-type(2) {background-color: #F1C40F  ;}
-.day:nth-of-type(3) {background-color: #AF7AC5 ;}
-.day:nth-of-type(4) {background-color: #27AE60 ;}
-.day:nth-of-type(5) {background-color: palevioletred ;}
-
-.clase{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-    background-color:yellowgreen;
-    border: dashed 2px gainsboro;
+.day:nth-of-type(1) {
+    background-color: rgba(25,137,159, 1) ;
 }
 
-.clase-1{
+.day:nth-of-type(2) {
+    background-color: #B7950B  ;
+}
+
+.day:nth-of-type(3) {
+    background-color:rgba(25,137,159, 1) ;
+}
+
+.day:nth-of-type(4) {
+    background-color: #B7950B   ;
+}
+
+.day:nth-of-type(5) {
+    background-color:rgba(25,137,159, 1)  ;
+}
+
+.session{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    background-color:#d3b5e0  ;
+    border: solid 1px gray;
+    font-size: 15px;
+} 
+
+#session-1{
     grid-column: 1/2;
     grid-row: 3 / 4;
 }
 
-.clase-2{
+#session-2{
     grid-column: 2/3;
     grid-row: 2 / span 2;
 
 }
 
-.clase-3{
+#session-3{
     grid-column: 3/4;
-    grid-row: 3 / 4;
+    grid-row: 3 / 4; 
 }
 
-.clase-4{
+#session-4{
     grid-column: 4/5;
     grid-row: 2 / span 2;
 }
 
-.clase-5{
+#session-5{
     grid-column: 5/6;
     grid-row: 4 / span 2;
 }
 
-.clase-6{
+#session-6{
     grid-column: 1/2;
     grid-row: 7 / span 2;
 }
 
-.clase-7{
+#session-7{
     grid-column: 2/3;
     grid-row: 6 / span 2;
 }
 
-.clase-8{
+#session-8{
     grid-column: 3/4;
     grid-row: 7 / 8;
 }
 
-.clase-9{
+#session-9{
     grid-column: 3/4;
     grid-row: 8 / 9;
 }
 
-.clase-10{
+#session-10{
     grid-column: 4/5;
     grid-row: 6 / span 2;
 }
 
-.clase-11{
+#session-11{
     grid-column: 5/6;
     grid-row: 7 / 8;
-}
-
+} 
 
 /*--Diseño responsivo--*/
 
 /* ##Device = Desktops
-  ##Screen = 1281px to higher resolution desktops */
+   ##Screen = 1281px to higher resolution desktops */
+
 @media (min-width: 1281px) {
-    body{
-        background-color: greenyellow;
-    }
-  }
 
-  @media (min-width: 1025px) and (max-width: 1280px) {
-  
-    body{
-        background-color: blueviolet;
+}
+
+/* ##Device = Laptops, Desktops
+   ##Screen = B/w 1025px to 1280px */
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    #image{
+        height: 300px;
     }
 
-    #image h1{
-        font-size: 26px;
-     }
+    #image span:nth-of-type(1){
+        font-size: 35px;
+    }
+
+    #image span:nth-of-type(2){
+        font-size: 25px;
+    }
+
+    .parrafos-home{
+        font-size: 20px;
+    }
 
     .card h2{
         font-size: 17px;
@@ -218,7 +243,7 @@ nav{
         font-size: 14px;
     }
 
-    #horario{
+    #schedule{
         width: 80%;
     }   
 
@@ -226,36 +251,41 @@ nav{
         font-size: 15px;
     }
 
-    .clase{
+    .session{
         font-size: 14px;
     }
-  }
+}
 
-/* ##Device = Tablets, Ipads (landscape)
-  ##Screen = B/w 768px to 1024px */
+/* ##Device = Tablets, Ipads (portrait)
+   ##Screen = B/w 768px to 1024px */
+
 @media (min-width: 768px) and (max-width: 1024px) {
-
-    body{
-        background-color: red;
+    
+    #image{
+        height: 290px;
     }
 
-      .parrafos-home{
-          font-size: 16px;
-      }
+    .parrafos-home{
+        font-size: 18px;
+    }
 
-      #image h1{
-        font-size: 25px;
-     }
+    #image span:nth-of-type(1){
+        font-size: 32px;
+    }
 
-    #cards{
+    #image span:nth-of-type(2){
+        font-size: 20px;
+    }
+
+    #cardsContainer{
         flex-wrap:  wrap;
-      }
+    }
 
-      .card{
-          width: 45%;
-      }
+    .card{
+        width: 45%;
+    }
 
-      .card h2{
+    .card h2{
         font-size: 18px;
     }
 
@@ -263,12 +293,13 @@ nav{
         font-size: 15px;
     }
 
-      #horario{
+    .card img{
+        width:75%;
+    }
+
+    #schedule{
         column-gap: 0px;
         row-gap: 0px;
-      }
-
-      #horario{
         width: 90%;
     }
 
@@ -276,59 +307,63 @@ nav{
         font-size: 15px;
     }
 
-    .clase{
-    font-size: 13px;
+    .session{
+        font-size: 13px;
+        border: 0;
     }
 
-  }
+}
 
   /* ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 481px to 767px */
-  @media (min-width: 481px) and (max-width: 767px) {
-    body{
-        background-color: yellow;
-    }
+     ##Screen = B/w 481px to 767px */
+
+@media (min-width: 481px) and (max-width: 767px) {
 
     #image{
         height: 250px;
     }
 
-    #image h1{
-       font-size: 20px;
+    #image span:nth-of-type(1){
+        font-size: 22px;
+    }
+
+    #image span:nth-of-type(2){
+        font-size: 15px;
     }
 
     nav {
         flex-flow: column wrap;
-      }
+    }
 
-      .parrafos-home{
-          font-size: 15px;
-      }   
+    .parrafos-home{
+        font-size: 16px;
+    }   
 
-      #cards{
+    #cardsContainer{
         flex-wrap:  wrap;
-      }
+    }
 
-      .card{
-          width: 90%;
-      }
+    .card{
+        width: 90%;
+    }
 
-
-      #horario{
+    #schedule{
         column-gap: 0px;
         row-gap: 0px;
         width: 100%;
-      }
+    }
 
-      .day{
+    .day{
         font-size: 14px;
     }
 
-    .clase{
-    font-size: 12px;
+    .session{
+        font-size: 12px;
+        border: 0;
     }
 
     .card img{
+        width: 60%;
         height:60%;
     }
 
@@ -339,14 +374,11 @@ nav{
     .card p{
         font-size: 14px;
     }
-  }
+}
 
-
-  @media (min-width: 320px) and (max-width: 480px) {
-  
-    body{
-        background-color: pink;
-    }
+/* ##Device = Most of the Smartphones Mobiles (Portrait)
+   ##Screen = B/w 320px to 479px */
+@media (min-width: 320px) and (max-width: 480px) {
 
     nav{
         width: 100%;
@@ -354,9 +386,8 @@ nav{
         flex-flow: column;
     }
 
-    
     .parrafos-home{
-        font-size: 16px;
+        font-size: 14px;
         padding: 6px;
     } 
     
@@ -364,32 +395,126 @@ nav{
         height: 190px;
     }
 
-    #image h1{
-        font-size: 17px;
-     }
+    #image span:nth-of-type(1){
+        font-size: 14px;
+    }
 
-     
-     #cards{
+    #image span:nth-of-type(2){
+        font-size: 11px;
+    }
+ 
+    #cardsContainer{
         flex-wrap:  wrap;
-      }
+    }
 
-      .card{
-          width: 90%;
-      }
+    .card{
+        width: 90%;
+    }
 
-      #horario{
-        display: none;
-      }
-
-
-      .card h2{
+    .card h2{
         font-size: 15px;
     }
 
     .card p{
         font-size: 12px;
     }
+    
+    .day{
+        font-size: 14px;
+    }
+      
+    .session{
+        font-size: 13px;
+    }
 
-  }
+    #schedule{
+        width: 90%;
+        grid-template-columns: 1fr; /*Muestra el horario en una sola columna*/
+        column-gap: 0px;
+        row-gap: 0px;
+    }
+
+    .day:nth-of-type(1) { 
+        grid-column: 1/1;   
+        grid-row: 1/2;
+    }
+
+    .day:nth-of-type(2) {
+        grid-column: 1/1;   
+        grid-row: 4/5;
+        background-color:rgba(25,137,159, 1);
+    }
+
+    .day:nth-of-type(3) {
+        grid-column: 1/1;   
+        grid-row: 7/8;
+    }
+
+    .day:nth-of-type(4) {
+        grid-column: 1/1;   
+        grid-row: 11/12;
+        background-color:rgba(25,137,159, 1);
+    }
+
+   .day:nth-of-type(5) {
+        grid-column: 1/1;   
+        grid-row: 14/15;
+    }
+    
+    #session-1{
+        grid-column: 1/1;   
+        grid-row: 2/3;
+    }
+    
+    #session-2{
+        grid-column: 1/1;   
+        grid-row: 5/6;    
+    }
+    
+    #session-3{
+        grid-column: 1/1;   
+        grid-row: 8/9; 
+    }
+    
+    #session-4{
+        grid-column: 1/1;   
+        grid-row: 12/13;
+    }
+    
+    #session-5{
+        grid-column: 1/1;   
+        grid-row: 15/16;
+    }
+    
+    #session-6{
+        grid-column: 1/1;   
+        grid-row: 3/4;
+    }
+    
+    #session-7{
+        grid-column: 1/1;   
+        grid-row: 6/7;
+    }
+    
+    #session-8{
+        grid-column: 1/1;   
+        grid-row: 9/10;
+    }
+    
+    #session-9{
+        grid-column: 1/1;   
+        grid-row: 10/11;
+    }
+    
+    #session-10{
+        grid-column: 1/1;   
+        grid-row: 13/14;
+    }
+    
+    #session-11{
+        grid-column: 1/1;   
+        grid-row: 16/17;
+    } 
+}
 
 
