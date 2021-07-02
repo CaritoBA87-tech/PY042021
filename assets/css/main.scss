@@ -26,6 +26,7 @@ nav{
     @include fijarTamano(70%, 450px);
     @include displayFlex(column);
     @include centrar();
+    margin-top: 15px;
 
     span:nth-of-type(1){
         background-color:rgba(white, 0.8); 
@@ -53,6 +54,7 @@ nav{
     @include centrar();
     @include displayFlex($justify: space-around);
     width: 95%;
+    margin-top: 15px;
 }
 
 .card{
@@ -97,6 +99,7 @@ nav{
     border: solid 1px gainsboro;
     background-color: #F5F5F5;
     @include displayGrid(repeat(5, 1fr), repeat(7, 1fr),10px, 10px);
+    margin-top: 15px;
 }
 
 .day{
