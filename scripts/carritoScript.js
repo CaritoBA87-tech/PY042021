@@ -7,7 +7,7 @@ function start(){
 function showCart(){
     document.getElementById("cartTable").innerHTML="";
 
-    var cart =sessionStorage.getItem("cart") ? JSON.parse(sessionStorage.getItem("cart")) : [];  
+    var cart =localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];  
 
     if(cart.length == 0) {
         var span = document.createElement("span");
@@ -90,9 +90,9 @@ function showCart(){
 //Actualiza los datos en sessionStorage
 function refreshSessionData(cart){
     var quantity = cart.reduce((acumulador, item) => {return acumulador + item.quantity}, 0);
-    sessionStorage.setItem("cartQuantity", quantity);
-    sessionStorage.setItem("cart", JSON.stringify(cart));
-    document.getElementById("cartQuantity").innerHTML=sessionStorage.getItem("cartQuantity");
+    localStorage.setItem("cartQuantity", quantity);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    document.getElementById("cartQuantity").innerHTML=localStorage.getItem("cartQuantity");
 }
 
 

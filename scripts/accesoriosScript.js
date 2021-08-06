@@ -17,7 +17,7 @@ function start(){
         {id: 12, name:"Toalla de yoga" , price: 500 , description:"Toalla antideslizante de microfibra absorbente suave." ,  img: "assets/images/prop12.png"},
     ];
 
-    var cart =sessionStorage.getItem("cart") ? JSON.parse(sessionStorage.getItem("cart")) : [];
+    var cart =localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
     var quantity = 0;
 
     const options2 = { style: 'currency', currency: 'USD' };
@@ -87,9 +87,9 @@ function start(){
     //Actualiza los datos en sessionStorage
     function refreshSessionData(){
         var quantity = cart.reduce((acumulador, item) => {return acumulador + item.quantity}, 0);
-        sessionStorage.setItem("cartQuantity", quantity);
-        sessionStorage.setItem("cart", JSON.stringify(cart));
-        document.getElementById("cartQuantity").innerHTML=sessionStorage.getItem("cartQuantity");
+        localStorage.setItem("cartQuantity", quantity);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        document.getElementById("cartQuantity").innerHTML=localStorage.getItem("cartQuantity");
     }
 }
 

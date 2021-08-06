@@ -7,7 +7,7 @@ function load_menu(){
         document.getElementById("menu").innerHTML=qr.responseText;
 
         //Carrito de compras
-        var cartQ = sessionStorage.getItem("cartQuantity");
+        var cartQ = localStorage.getItem("cartQuantity");
         document.getElementById("cartQuantity").innerHTML = cartQ ? cartQ : "0"; 
     }
 };
