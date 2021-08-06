@@ -119,6 +119,7 @@ body{
 }
 
 .message{
+  display: none;
   background-color:#19899F;
   color: white;
   font-weight: bold;
@@ -132,5 +133,6 @@ body{
 }
 
 .show{
+  display: inline;
   opacity:1;
 }

@@ -49,7 +49,7 @@ function start(){
         div.appendChild(img);
         div.appendChild(createNode("span", props[i].name));
         var precio = numberFormat2.format(props[i].price);
-        div.appendChild(createNode("span", "$ " + precio, {className: "priceProp"}));
+        div.appendChild(createNode("span",  precio, {className: "priceProp"}));
         container.appendChild(div);
     }
 
