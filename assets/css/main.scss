@@ -6,20 +6,6 @@ body{
     background-color: $opacity_color;
 }
 
-nav{
-    background-color:$dark_color;
-    font-family:$primary_font;
-    @include fijarTamano(100%, 50px);
-    @include displayFlex($justify: space-around, $align: center); 
-    padding: 0px 20px 0 0px;
-}
-
-.parrafos-home{
-    color: white;
-    text-decoration: none;
-    font-size: 21px;
-}
-
 /*Imagen de portada que abarca el 70% de la pantalla usando  background-image en css*/
 #image{
     @include imagenFondo("../images/buda.jpg", no-repeat, center center, 100% 100%);
@@ -216,10 +202,6 @@ nav{
         }
     }
 
-    .parrafos-home{
-        font-size: 20px;
-    }
-
     .card{
         h2{
             font-size: 17px;
@@ -243,10 +225,6 @@ nav{
    ##Screen = B/w 768px to 1024px */
 
 @media (min-width: 768px) and (max-width: 1024px) {
-
-    .parrafos-home{
-        font-size: 18px;
-    }
 
     #image{
         height: 350px;
@@ -308,14 +286,6 @@ nav{
         }
     }
 
-    nav {
-        flex-flow: column wrap;
-    }
-
-    .parrafos-home{
-        font-size: 16px;
-    }   
-
     #cardsContainer{
         flex-wrap:  wrap;
     }
@@ -351,16 +321,6 @@ nav{
    ##Screen = B/w 320px to 479px */
 @media (min-width: 320px) and (max-width: 480px) {
 
-    nav{
-        @include fijarTamano(100%, 40%);
-        flex-flow: column;
-    }
-
-    .parrafos-home{
-        font-size: 14px;
-        padding: 6px;
-    } 
-    
     #image{
         height: 190px;
 

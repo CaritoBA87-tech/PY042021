@@ -1,0 +1,56 @@
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: gainsboro;
+  font-size: 18px;
+  }
+
+table{
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  padding: 10px;
+  width: 80%;
+  border: #19899F solid 1px; 
+}
+
+thead{
+  background-color: #188499;
+  height: 40px;
+  color: white;
+}
+
+td{
+  padding: 40px;
+}
+
+.partialPrice{
+  font-weight: bold;
+  color:#BA41A8;
+  text-align: right;
+}
+
+.total{
+  font-weight: bold;
+  background-color: #ece7e7;
+  color:#BA41A8;
+}
+
+#empty{
+  display: block;
+  text-align: center;
+  margin-top: 50px;
+  color:#146e80;
+  font-weight: bold;
+}
+
+.remove{
+  width: 110px;
+  font-size: 17px;
+  cursor: pointer;
+  color:#11697a;
+}
+
+.remove:hover{
+  color:#902280;
+}

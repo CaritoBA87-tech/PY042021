@@ -1,0 +1,136 @@
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: gainsboro;
+}
+
+#container{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 15px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.containerProp{
+  padding-top: 40px;
+  margin:20px;
+  background-color: white;
+  border: #19899F solid 1px; 
+}
+
+.containerProp:hover{
+  cursor: pointer;
+  transform: scale(1.1, 1.1);
+}
+
+.imageProp{
+  width: 60%;
+}
+
+.containerProp span{
+  display:block;
+  padding: 5px;
+}
+
+.priceProp{
+  color: #BA41A8;
+  font-weight: bold;
+}
+
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 1; 
+  padding-top: 50px;
+  left: 25%;
+  top: 20%;
+  width: 47%;
+  height: 40%; 
+  overflow: auto;     
+  background-color:#2C3E50;
+  background-color:rgba(44, 62, 80, 0.9);
+  color: white;
+  border: #B7950B solid 1px; 
+}
+
+.modal-content {   
+  display: block; 
+  width: 50%;
+  max-width: 700px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 23px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modal-image{
+  width: 40%;
+}
+
+#details{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content:space-evenly;
+}
+
+#details p{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#details div{
+  margin: 25px;
+}
+
+#addToCart {
+  margin-top: 40px;
+  height: 40px;
+  width: 280px;
+  font-size: 19px;
+  color:#a13291;
+  font-weight: bold;
+  background-color: white; 
+}
+
+#addToCart:hover {
+  color:teal;
+  cursor: pointer;
+}
+
+#quantity{
+  width: 50px;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.message{
+  background-color:#19899F;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  opacity: 0;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  padding: 10px 20px;
+  transition: ease-in opacity 1s;
+}
+
+.show{
+  opacity:1;
+}
