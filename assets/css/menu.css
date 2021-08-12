@@ -18,7 +18,6 @@ nav {
   
 .badge {
   display: inline-block;
-  min-width: 16px;
   padding: 5px 17px;
   border-radius: 50%;
   font-size: 20px;
@@ -27,9 +26,13 @@ nav {
   color: #fefefe;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-  
+
 @media (min-width: 1025px) and (max-width: 1280px) {
   .parrafos-home {
+    font-size: 20px;
+  }
+
+  .badge {
     font-size: 20px;
   }
 }
@@ -37,6 +40,10 @@ nav {
 @media (min-width: 768px) and (max-width: 1024px) {
   .parrafos-home {
     font-size: 18px;
+  }
+
+  .badge {
+    font-size: 16px;
   }
 }
   
@@ -48,6 +55,11 @@ nav {
   .parrafos-home {
     font-size: 16px;
   }
+
+  .badge {
+    font-size: 14px;
+  }
+  
 }
   
 @media (min-width: 320px) and (max-width: 480px) {
@@ -60,5 +72,9 @@ nav {
   .parrafos-home {
     font-size: 14px;
     padding: 6px;
+  }
+
+  .badge {
+    font-size: 13px;
   }
 }
