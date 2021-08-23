@@ -1,13 +1,14 @@
-function start(){   
+function start(){  
     load_menu();  
-    showCart();
+    resizeCart();
+    //showCart();
 }
 
 //Muestra los productos en el carrito de compras
-function showCart(){
+function showCart(width){
+    var cart =localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+    
     document.getElementById("cartTable").innerHTML="";
-
-    var cart =localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];  
 
     if(cart.length == 0) {
         var span = document.createElement("span");
@@ -24,8 +25,12 @@ function showCart(){
     const options2 = { style: 'currency', currency: 'USD' };
     const numberFormat2 = new Intl.NumberFormat('en-US', options2);
 
+    var length = width >= 1025 && width<=1280 ? "regular" :  "large";
+
     var table = document.createElement("table");
-        
+    table.style.fontSize = length == "regular" ? "17px" : "18px";
+    table.style.width = length == "regular" ? "97%" : "90%";
+
     var thead = document.createElement("thead");
     var tbody = document.createElement("tbody");
 
@@ -42,7 +47,37 @@ function showCart(){
 
         properties.forEach(function(item){
             var td  = document.createElement("td");
-            td.textContent = item == "price" ? numberFormat2.format(cart[i][item])  : cart[i][item];
+
+            if(item=="quantity")
+            {
+                var editQuantityButton = document.createElement("input");
+                editQuantityButton.type = "number";
+                editQuantityButton.min = 0;
+                editQuantityButton.value=cart[i][item];
+                editQuantityButton.id=cart[i].id;
+                editQuantityButton.classList.add("editQuantity");
+                editQuantityButton.style.fontSize = length == "regular" ? "17px" : "18px";
+
+                editQuantityButton.addEventListener("change", function(e){
+                    if (isNaN(e.target.value) || e.target.value < 0)
+                        return;
+
+                    var item = cart.find(item =>  item.id == e.target.id);
+                    item.quantity = parseInt(e.target.value);
+                    refreshSessionData(cart);
+                    var width = window.outerWidth;
+                    showCart(width);
+                });
+
+                td.appendChild(editQuantityButton);
+            }
+
+            else
+            {
+                td.textContent = item == "price" ? numberFormat2.format(cart[i][item])  : cart[i][item];
+                td.style.textAlign = item == "price" ? "right" : "";    
+            }
+
             tr.appendChild(td);
         });
 
@@ -51,6 +86,7 @@ function showCart(){
         removeButton.innerHTML = "Eliminar";
         removeButton.id = cart[i].id;
         removeButton.classList = "remove";
+        removeButton.style.fontSize = length == "regular" ? "15px" : "16px";
 
         //Elimina un producto del carrito de compras
         removeButton.addEventListener("click", function(e){
@@ -94,5 +130,37 @@ function refreshSessionData(cart){
     localStorage.setItem("cart", JSON.stringify(cart));
     document.getElementById("cartQuantity").innerHTML=localStorage.getItem("cartQuantity");
 }
+
+function resizeCart(){
+    var width = window.outerWidth;
+
+    if (width>1280){
+        showCart(width);
+        document.body.style.backgroundColor = "gainsboro";
+    }
+
+    else if(width>=1025 && width<=1280){
+        showCart(width);
+        document.body.style.backgroundColor = "red";
+    }
+
+    else if(width>=768 && width<=1024) {
+        document.body.style.backgroundColor = "green";
+    }
+
+    else if(width>=481 && width<=767){
+        document.body.style.backgroundColor = "yellow";
+    }
+
+    else if(width>=320 && width<=480) {
+        document.body.style.backgroundColor = "orange";
+    }
+}
+
+
+
+
+
+
 
 
