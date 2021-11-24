@@ -15,6 +15,12 @@ nav {
   text-decoration: none;
   font-size: 21px;
 }
+
+.parrafos-home:hover{
+  color:#f8ecbc;
+  text-decoration: none;
+  background-color: #2C3E50;
+}
   
 .badge {
   display: inline-block;
@@ -25,6 +31,13 @@ nav {
   background: #9e8009;
   color: #fefefe;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.dropdown-item{
+  background-color: #2C3E50;
+  font-family: monospace;
+  color: white;
+  font-size: 21px;
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {

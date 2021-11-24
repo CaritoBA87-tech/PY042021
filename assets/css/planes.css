@@ -1,0 +1,61 @@
+body{
+    background-color: gainsboro;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+#planesContainer{
+    margin-top: 30px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border:1px solid;
+    border: #19899F solid 1px; 
+    padding: 20px;
+    background-color: white;
+}
+
+.planContainer{
+    margin-bottom: 40px;
+    border-bottom: 2px solid #127e94;
+    padding-bottom: 20px;
+}
+
+.planTitleContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.planTitle{
+    color:  #1a8499;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.planPrice{
+    display: inline-flex;
+    align-items: center;
+    color:#BA41A8;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.planDetail{
+   font-size: 18px;
+   font-weight: bold;
+   color: #2443aa;
+   text-decoration: underline;
+   border: none;
+   background-color: white;
+   cursor: pointer;
+}
+
+.planDetail:hover{
+    color:#1e7688;
+}
+
+.planDescription{
+    font-size: 18px;
+}
