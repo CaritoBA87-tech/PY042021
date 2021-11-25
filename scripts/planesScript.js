@@ -8,7 +8,8 @@ function show_plans(){
     const options2 = { style: 'currency', currency: 'USD' };
     const numberFormat2 = new Intl.NumberFormat('en-US', options2);
 
-    fetch('http://127.0.0.1:8000/api/planes', {
+    //fetch('http://127.0.0.1:8000/api/planes', {
+    fetch('https://app-mandala.herokuapp.com/api/planes', {
         method: "GET",
     })
         .then(response => response.json())
@@ -70,7 +71,8 @@ function createNode(type, child, attr) {
 function showDetail(e){
     var idSelected = e.target.myParam;
 
-    fetch('http://127.0.0.1:8000/planDetail/' + idSelected + '/', {
+    //fetch('http://127.0.0.1:8000/planDetail/' + idSelected + '/', {
+    fetch('https://app-mandala.herokuapp.com/planDetail/' + idSelected + '/', {
         method: "GET",
     })
         .then(response => response.json())
