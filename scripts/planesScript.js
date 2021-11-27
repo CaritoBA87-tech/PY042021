@@ -3,12 +3,21 @@ function start(){
     show_plans();
 }
 
+const options2 = { style: 'currency', currency: 'USD' };
+const numberFormat2 = new Intl.NumberFormat('en-US', options2);
+
+var dias = {
+    "L": "Lunes",
+    "M": "Martes",
+    "N": "Miércoles",
+    "J": "Jueves",
+    "V": "Viernes",
+    "S": "Sábado",
+    "D": "Domingo"
+};
+
 function show_plans(){
 
-    const options2 = { style: 'currency', currency: 'USD' };
-    const numberFormat2 = new Intl.NumberFormat('en-US', options2);
-
-    //fetch('http://127.0.0.1:8000/api/planes', {
     fetch('https://app-mandala.herokuapp.com/api/planes', {
         method: "GET",
     })
@@ -28,7 +37,7 @@ function show_plans(){
                 div2.appendChild(span);
 
                 var link = createNode("div", '', {className: "planDetail", myParam: data[i].id.toString(), onclick: showDetail });              
-                link.innerText = "Ver detalle  ";
+                link.innerText = "Ver horario  ";
 
                 var icon = document.createElement("span");
                 icon.className ="fa fa-plus-circle";
@@ -42,7 +51,7 @@ function show_plans(){
                 span.innerText = data[i].descripcion;
                 div.appendChild(span);
 
-                document.getElementById("planesContainer").appendChild(div);
+                document.getElementById("plansContainer").appendChild(div);
             }
         });
 }
@@ -71,15 +80,82 @@ function createNode(type, child, attr) {
 function showDetail(e){
     var idSelected = e.target.myParam;
 
-    //fetch('http://127.0.0.1:8000/planDetail/' + idSelected + '/', {
+    document.getElementById("plansContainer").style.display="None";
+    document.getElementById("planDetailContainer").style.display="Block";
+
     fetch('https://app-mandala.herokuapp.com/planDetail/' + idSelected + '/', {
         method: "GET",
     })
         .then(response => response.json())
         .then(data => {
-                let h1 = document.createElement("h1");
-                h1.innerText = data["horario"][0].inicio;
-                h1.innerText = data["plan"].nombre;
-                document.getElementById("prueba").appendChild(h1);
+            var container = document.getElementById("planDetailContainer");
+
+            var h1 = createNode("h1", '', {className: "planTitle"});
+            h1.innerText = data["plan"].nombre;
+            container.appendChild(h1);
+
+            var span = createNode("span", '', {className: "planPrice"});
+            span.innerText = numberFormat2.format(data["plan"].costo) + "/mes";
+            span.style.alignItems = "center";
+            span.style.marginTop="8px";
+            container.appendChild(span);
+         
+            span = createNode("span", '', {className: "planDescription"});
+            span.innerText = data["plan"].descripcion;
+            span.style.display = "Block";
+            span.style.marginTop="15px";
+            container.appendChild(span);
+
+            h1 = createNode("h1", '', {className: "scheduleTitle"});
+            //h1.innerText = "Horario";
+            container.appendChild(h1);
+
+            var section = createNode("section", '', {className: "containerSchedule"});
+            
+            span =  createNode("span", '', {className: "header"});
+            span.innerText = "Día";
+            section.appendChild(span);
+
+            span =  createNode("span", '', {className: "header"});
+            span.innerText = "Hora";
+            section.appendChild(span);
+
+            span =  createNode("span", '', {className: "header"});
+            span.innerText = "Clase";
+            section.appendChild(span);
+
+            span =  createNode("span", '', {className: "header"});
+            span.innerText = "Instructor";
+            section.appendChild(span);
+
+            for(var i=0; i<data["horario"].length; i++){
+                span =  createNode("span", '', {className: "day"});
+                span.innerText = dias[data["horario"][i].dia];
+                section.appendChild(span);
+
+                span =  createNode("span", '');
+                span.innerText = (data["horario"][i].inicio).substring(0, 5) + " - " + (data["horario"][i].fin).substring(0, 5);
+                section.appendChild(span);
+
+                span =  createNode("span", '', {className: "session"});
+                span.innerText = data["horario"][i].clase + " ";
+
+                var icon = document.createElement("span");
+                icon.className ="fa fa-plus-circle";
+                span.appendChild(icon);
+
+                section.appendChild(span);
+
+                span =  createNode("span", '', {className: "instructor"});
+                span.innerText = data["horario"][i].instructor + " ";
+
+                var icon = document.createElement("span");
+                icon.className ="fa fa-plus-circle";
+                span.appendChild(icon);
+
+                section.appendChild(span);
+            }
+
+            container.appendChild(section);
     }); 
 }

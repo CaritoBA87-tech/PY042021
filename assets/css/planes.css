@@ -3,7 +3,7 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
-#planesContainer{
+#plansContainer{
     margin-top: 30px;
     width: 80%;
     margin-left: auto;
@@ -29,9 +29,10 @@ body{
 }
 
 .planTitle{
-    color:  #1a8499;
+    color:  #156b7c;
     font-weight: bold;
     font-size: 23px;
+    margin-top: 25px;
 }
 
 .planPrice{
@@ -45,7 +46,7 @@ body{
 .planDetail{
    font-size: 18px;
    font-weight: bold;
-   color: #2443aa;
+   color:  #2443aa; 
    text-decoration: underline;
    border: none;
    background-color: white;
@@ -53,9 +54,86 @@ body{
 }
 
 .planDetail:hover{
-    color:#1e7688;
+    color:#127185;
 }
 
 .planDescription{
+   
     font-size: 18px;
 }
+
+#planDetailContainer{
+    display: none;
+    margin-top: 30px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border:1px solid;
+    border: #19899F solid 1px; 
+    padding: 20px;
+    background-color: white;
+}
+
+.scheduleTitle{
+    font-family: verdana;
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 50px;
+    color: teal;
+}
+
+.containerSchedule{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto; 
+    border-bottom: 1px dashed #19899F ;
+    text-align: center;
+    background-color: rgb(220, 220, 220, 0.1);
+    grid-row-gap: 20px;
+    align-content:flex-start;
+    font-size: 18 cpx;
+}
+
+.header{
+    background-color: #188499;
+    color:  white;
+    border-bottom: 1px dashed #19899F ;
+    border-top: 1px dashed #19899F ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 30px;
+    text-align: center;
+
+}
+
+.session{
+    color: #19899F;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.instructor{
+    color: #a78913;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.session:hover{
+    color:#2443aa;
+}
+
+.instructor:hover{
+    color:#caa11b;
+}
+
+.return{
+    font-size: 18px;
+    color: rgb(96, 96, 236);
+    font-family: verdana;
+    text-decoration: underline;
+}
+

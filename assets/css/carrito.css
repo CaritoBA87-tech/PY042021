@@ -18,6 +18,12 @@ thead{
   background-color: #188499;
   height: 40px;
   color: white;
+  text-align: center;
+
+}
+
+th{
+  border: white 1px solid;
 }
 
 td{
@@ -49,6 +55,7 @@ td{
   font-size: 16px;
   cursor: pointer;
   color:#11697a;
+  border: 1px solid;
 }
 
 .remove:hover{
