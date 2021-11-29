@@ -7,17 +7,37 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
     <script src="scripts/menuScript.js"></script> 
     <link rel="stylesheet" href="assets/css/menu.css">
-    <script src="scripts/carritoScript.js"></script>
-    <link rel="stylesheet" href="assets/css/carrito.css">
+    <script src="scripts/clasesScript.js"></script>
+    <link rel="stylesheet" href="assets/css/instructores.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    
-    <title>Mandala Yoga - Carrito de Compras</title>
-</head>
-<body onload="start()" onresize="resizeCart()">
 
-    <div id="menu"></div>
+    <title>Mandala Yoga - Clases</title>
+
+</head>
+
+<body onload="start()">
+    <div id="menu"> </div>
+
+    <div id="container">
+       
+        <div id="instructorList" class="list-group">
+        </div>
+
+        <div id="instructorDetail"> 
+            <h3 id="instructorName"></h3>          
+            <div id="instructorContainer">
+                <span  id="instructorDescription">                   
+                </span>
+                <img  id="instructorImg">
+            </div>
+
+            <h5></h5>
+            <ul id="classesList"> 
+            </ul>           
+        </div>
+    </div>
     
-    <div id="cartTable"></div>
+</body>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

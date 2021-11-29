@@ -40,6 +40,15 @@ nav {
   font-size: 21px;
 }
 
+.MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
+.MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+.MultiCarousel .MultiCarousel-inner .item { float: left;}
+.MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;}
+.MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+.MultiCarousel .leftLst { left:0; }
+.MultiCarousel .rightLst { right:0; }
+.MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
+
 @media (min-width: 1025px) and (max-width: 1280px) {
   .parrafos-home {
     font-size: 20px;
@@ -48,6 +57,18 @@ nav {
   .badge {
     font-size: 20px;
   }
+}
+
+footer{
+  border-top: dashed; 
+  border-top-width: 1px; 
+  border-top-color:teal;
+  margin-top: 20px;
+}
+
+footer section{
+  background-color: rgba(0, 0, 0, 0.05);
+  color:rgb(47, 46, 46);
 }
   
 @media (min-width: 768px) and (max-width: 1024px) {

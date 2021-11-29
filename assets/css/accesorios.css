@@ -15,7 +15,7 @@ body{
   padding-top: 40px;
   margin:10px;
   background-color: white;
-  border: #19899F solid 1px; 
+  border: gray solid 1px; 
 }
 
 .containerProp:hover{
@@ -47,10 +47,9 @@ body{
   width: 57%;
   height: 45%; 
   overflow: auto;     
-  background-color:#2C3E50;
-  background-color:rgba(44, 62, 80, 0.9);
+  background-color: rgba(44, 62, 80, 0.9);
   color: white;
-  border: #B7950B solid 1px; 
+  border: grey solid 1px; 
 }
 
 .modal-content {   

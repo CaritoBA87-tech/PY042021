@@ -106,10 +106,6 @@ function showDetail(e){
             span.style.marginTop="15px";
             container.appendChild(span);
 
-            h1 = createNode("h1", '', {className: "scheduleTitle"});
-            //h1.innerText = "Horario";
-            container.appendChild(h1);
-
             var section = createNode("section", '', {className: "containerSchedule"});
             
             span =  createNode("span", '', {className: "header"});
@@ -133,25 +129,17 @@ function showDetail(e){
                 span.innerText = dias[data["horario"][i].dia];
                 section.appendChild(span);
 
-                span =  createNode("span", '');
+                span =  createNode("span", '', {className: "hour"});
                 span.innerText = (data["horario"][i].inicio).substring(0, 5) + " - " + (data["horario"][i].fin).substring(0, 5);
                 section.appendChild(span);
 
                 span =  createNode("span", '', {className: "session"});
                 span.innerText = data["horario"][i].clase + " ";
 
-                var icon = document.createElement("span");
-                icon.className ="fa fa-plus-circle";
-                span.appendChild(icon);
-
                 section.appendChild(span);
 
                 span =  createNode("span", '', {className: "instructor"});
                 span.innerText = data["horario"][i].instructor + " ";
-
-                var icon = document.createElement("span");
-                icon.className ="fa fa-plus-circle";
-                span.appendChild(icon);
 
                 section.appendChild(span);
             }

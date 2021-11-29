@@ -1,0 +1,70 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: gainsboro;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+#container{
+    display: flex;
+}
+
+.list-group{
+    font-size: 17px;
+    width: 23%;
+    margin: 25px;
+}
+
+#instructorDetail{
+    margin: 25px;
+    background-color: white;
+    width: 70%;
+    border:#19899F solid 1px; 
+    padding: 20px;
+}
+
+.list-group-item{
+    height: 40px;
+    color:black;
+}
+
+#instructorContainer{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+#instructorName{
+    color:#156b7c;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+#instructorDescription{
+    font-size: 17px;
+    padding: 20px; 
+    width: 40%; 
+    text-align: justify;
+}
+
+h5{
+    margin-top: 15px;
+    color: #BA41A8;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+li{
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+#instructorImg{
+    width: 40%; 
+    border: 1px solid gray;
+}
+
+#classesList{
+    border-top: #BA41A8 dashed 1px; 
+    width: 50%;
+    font-size: 18px;
+}

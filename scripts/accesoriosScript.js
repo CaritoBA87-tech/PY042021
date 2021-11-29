@@ -37,8 +37,9 @@ function start(){
         addToCart();
     });
 
-    var container = createNode("section", '', {id: "container"});
-    document.body.appendChild(container);   
+    //var container = createNode("section", '', {id: "container"});
+    var container = document.getElementById("container");
+    //document.body.appendChild(container);   
 
     var propSelected={};
 

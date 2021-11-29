@@ -5,7 +5,7 @@ body{
 
 #plansContainer{
     margin-top: 30px;
-    width: 80%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
     border:1px solid;
@@ -16,13 +16,13 @@ body{
 
 .planContainer{
     margin-bottom: 40px;
-    border-bottom: 2px solid #127e94;
+    border-bottom: 1px solid #127e94;
     padding-bottom: 20px;
 }
 
 .planTitleContainer{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     width: 50%;
     margin-bottom: 20px;
@@ -32,7 +32,7 @@ body{
     color:  #156b7c;
     font-weight: bold;
     font-size: 23px;
-    margin-top: 25px;
+    margin-top: 10px;
 }
 
 .planPrice{
@@ -46,11 +46,12 @@ body{
 .planDetail{
    font-size: 18px;
    font-weight: bold;
-   color:  #2443aa; 
+   color:  #967a0c; 
    text-decoration: underline;
    border: none;
    background-color: white;
    cursor: pointer;
+   margin-top: 10px;
 }
 
 .planDetail:hover{
@@ -58,7 +59,6 @@ body{
 }
 
 .planDescription{
-   
     font-size: 18px;
 }
 
@@ -76,10 +76,11 @@ body{
 
 .scheduleTitle{
     font-family: verdana;
-    font-size: 21px;
+    font-size: 19px;
     font-weight: bold;
     margin-top: 50px;
     color: teal;
+    text-align: center;
 }
 
 .containerSchedule{
@@ -96,7 +97,7 @@ body{
     background-color: rgb(220, 220, 220, 0.1);
     grid-row-gap: 20px;
     align-content:flex-start;
-    font-size: 18 cpx;
+    font-size: 17px;
 }
 
 .header{
@@ -113,21 +114,21 @@ body{
 .session{
     color: #19899F;
     font-weight: bold;
-    cursor: pointer;
 }
 
 .instructor{
-    color: #a78913;
+    color: #19899F;
     font-weight: bold;
-    cursor: pointer;
 }
 
-.session:hover{
-    color:#2443aa;
+.day{
+    font-weight: bold;
+    color:rgb(46, 45, 45);
 }
 
-.instructor:hover{
-    color:#caa11b;
+.hour{
+    font-weight: bold;
+    color:rgb(46, 45, 45);
 }
 
 .return{
@@ -136,4 +137,5 @@ body{
     font-family: verdana;
     text-decoration: underline;
 }
+
 
