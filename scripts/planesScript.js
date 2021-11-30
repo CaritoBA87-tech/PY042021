@@ -83,7 +83,7 @@ function showDetail(e){
     document.getElementById("plansContainer").style.display="None";
     document.getElementById("planDetailContainer").style.display="Block";
 
-    fetch('https://app-mandala.herokuapp.com/planDetail/' + idSelected + '/', {
+    fetch('http://127.0.0.1:8000/planDetail/' + idSelected + '/', {
         method: "GET",
     })
         .then(response => response.json())
@@ -124,7 +124,31 @@ function showDetail(e){
             span.innerText = "Instructor";
             section.appendChild(span);
 
-            for(var i=0; i<data["horario"].length; i++){
+            for (var key in dias){
+                var result = (data["horario"]).filter(word => word.dia == key);
+
+                for(var i=0; i<result.length; i++){
+                    span =  createNode("span", '', {className: "day"});
+                    span.innerText = dias[result[i].dia];
+                    section.appendChild(span);
+
+                    span =  createNode("span", '', {className: "hour"});
+                    span.innerText = (result[i].inicio).substring(0, 5) + " - " + (result[i].fin).substring(0, 5);
+                    section.appendChild(span);
+
+                    span =  createNode("span", '', {className: "session"});
+                    span.innerText = result[i].clase + " ";
+
+                    section.appendChild(span);
+
+                    span =  createNode("span", '', {className: "instructor"});
+                    span.innerText = result[i].instructor + " ";
+    
+                    section.appendChild(span);
+                }
+            }
+
+            /*for(var i=0; i<data["horario"].length; i++){
                 span =  createNode("span", '', {className: "day"});
                 span.innerText = dias[data["horario"][i].dia];
                 section.appendChild(span);
@@ -142,7 +166,7 @@ function showDetail(e){
                 span.innerText = data["horario"][i].instructor + " ";
 
                 section.appendChild(span);
-            }
+            } */
 
             container.appendChild(section);
     }); 
