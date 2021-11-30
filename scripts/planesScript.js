@@ -83,7 +83,7 @@ function showDetail(e){
     document.getElementById("plansContainer").style.display="None";
     document.getElementById("planDetailContainer").style.display="Block";
 
-    fetch('http://127.0.0.1:8000/planDetail/' + idSelected + '/', {
+    fetch('https://app-mandala.herokuapp.com/planDetail/' + idSelected + '/', {
         method: "GET",
     })
         .then(response => response.json())
