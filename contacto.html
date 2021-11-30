@@ -57,12 +57,12 @@
             </button>
         </div>
 
-        <form id="myForm" onsubmit="saveDataUser()">
+        <form id="myForm" onsubmit="saveDataUser(event)">
             <div id="titleForm">¡Regístrate y obten una clase muestra!</div>
 
             <div class="mb-3">
                 <label class="form-label">Nombre:</label>
-                <input type="text" name="nombre" class="form-control" >
+                <input required type="text" name="nombre" class="form-control" >
             </div>
             <div class="mb-3">
                 <label class="form-label">Apellido:</label>
@@ -70,13 +70,16 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Email:</label>
-                <input type="email" name="correo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input required type="email" name="correo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label class="form-label">Teléfono:</label>
-                <input type="text" name="telefono" class="form-control">
-            </div>  </br>
-            <button type="submit" class="btn">Aceptar</button>
+                <label class="form-label">Aficiones:</label>
+                <select id="aficiones" style="height: 140px;" name="aficiones"  class="form-control" multiple>
+                </select>
+            </div>
+            <div class="mb-3" style="text-align: center;">
+                <button type="submit" class="btn">Aceptar</button>
+            </div>
         </form>
 
     </div>
@@ -134,6 +137,8 @@
           </div>
       </div>
     </div>
+
+    <div class="message">Datos registrados exitosamente</div>
 
     <footer class="text-center text-lg-start bg-light text-muted">
     <section>

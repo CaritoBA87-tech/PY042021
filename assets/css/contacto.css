@@ -16,7 +16,7 @@ body{
     margin: 20px;
     flex-basis: 350px;
     border-style: dashed;
-    border-color:palevioletred;
+    border-color:rgb(145, 103, 116)
 }  
 
 .blockquote{
@@ -70,6 +70,7 @@ h4{
     font-weight: bold; 
     font-size: larger; 
     color: teal;
+    margin-top: 25px;
 }
 
 #promocion span{
@@ -90,3 +91,22 @@ h4{
 blockquote p{
     font-size: 16px;
 }
+
+.message{
+    display: none;
+    background-color:#19899F;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    opacity: 0;
+    position: fixed;
+    right: 3px;
+    top: 55px;
+    padding: 10px 20px;
+    transition: ease-in opacity 1s;
+  }
+  
+  .show{
+    display: inline;
+    opacity:1;
+  }
