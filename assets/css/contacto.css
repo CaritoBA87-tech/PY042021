@@ -6,6 +6,7 @@ body{
     width: 50%;
     height: 51%;
     margin: 35px;
+    align-self:center;
 }
 
 .dropdown-item{
@@ -41,6 +42,7 @@ body{
 .carrImg{
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
 }
 
 h4{
@@ -52,7 +54,7 @@ h4{
 
 #myForm{
     border: solid rgb(23, 172, 172) 1px; 
-    width: 30%; 
+    width: 35%; 
     height: 50%;
     padding: 10px;
     margin-top: 35px;
@@ -61,7 +63,7 @@ h4{
 #titleForm{
     text-align: center; 
     font-family: Verdana, Geneva, Tahoma, sans-serif; 
-    font-size: 20px; 
+    font-size: 19px; 
     color:black;
 }
 
@@ -76,6 +78,10 @@ h4{
 #promocion span{
     font-size:medium; 
     font-weight: normal;
+}
+
+.card{
+    margin: 8px;
 }
 
 .card-header{
@@ -104,9 +110,218 @@ blockquote p{
     top: 55px;
     padding: 10px 20px;
     transition: ease-in opacity 1s;
-  }
+}
   
-  .show{
+.show{
     display: inline;
     opacity:1;
-  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    #myForm{
+        font-size: 16px;
+        width: 35%;
+    }
+
+    #titleForm{
+        font-size: 19px; 
+    }
+
+    .carrImg{
+        width: 100%;
+    }
+
+    h4{
+        font-size: 18px;
+    }
+
+    #promocion{
+        font-size: 18px; 
+    }
+
+    .blockquote p{
+        font-size: 15px;
+    }
+
+    .card{
+        margin: 5px;
+    }
+
+    .btn{
+        font-size: 15px;
+    }
+    
+    .card-header div{
+        font-size: 14px;
+    }
+
+    footer{
+        font-size: 15px;
+    }
+
+    #footerTitle{
+        font-size: 16px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    #myForm{
+        font-size: 15px;
+        width: 40%;
+    }
+
+    #titleForm{
+        font-size: 18px; 
+    }
+
+    .carrImg{
+        width: 100%;
+    }
+
+    h4{
+        font-size: 15px;
+    }
+
+    .btn{
+        font-size: 14px;
+    }
+
+    #promocion{
+        font-size: 16px; 
+    }
+
+    .card{
+        margin: 4px;
+    }
+
+    #cards {
+        flex-wrap: wrap;
+    }
+
+    .blockquote p{
+        font-size: 15px;
+    }
+
+    footer{
+        font-size: 15px;
+    }
+
+    #footerTitle{
+        font-size: 15px;
+    }
+
+    .card-header div{
+        font-size: 14px;
+    }
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    #cards {
+        flex-wrap: wrap;
+    }
+
+    #myForm{
+        width: 77%;
+        align-self: center;
+        font-size: 15px;
+    }
+
+    #principal {
+        flex-direction: column;
+    }
+
+    #carouselExampleCaptions{
+        width: 70%;
+    }
+
+    #titleForm{
+        font-size: 18px; 
+    }
+
+    #promocion{
+        font-size: 15px; 
+    }
+
+    .card{
+        margin: 8px;
+    }
+
+    .blockquote p{
+        font-size: 14px;
+    }
+
+    .card-header div{
+        font-size: 13px;
+    }
+
+    .btn{
+        font-size: 14px;
+    }
+
+    footer{
+        font-size: 13px;
+    }
+    
+    #footerTitle{
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    #principal {
+        flex-direction: column;
+    }
+
+    #carouselExampleCaptions{
+        width: 80%;
+    }
+
+    #myForm{
+        width: 85%;
+        align-self: center;
+        font-size: 14px;
+    }
+
+    #titleForm{
+        font-size: 15px; 
+    }
+
+    .btn{
+        font-size: 13px;
+    }
+
+    #promocion{
+        font-size: 14px; 
+    }
+
+    #cards {
+        flex-wrap: wrap;
+    }
+
+    .blockquote p{
+        font-size: 13px;
+    }
+
+    .card-header div{
+        font-size: 13px;
+    }
+
+    .card{
+        margin: 8px;
+    }
+
+    footer{
+        font-size: 13px;
+    }
+    
+    #footerTitle{
+        font-size: 14px;
+    }
+
+}
+
+
+  
