@@ -3,7 +3,6 @@ function start(){
     resizeCart();
 }
 
-
 //Muestra los productos en el carrito de compras
 function showCart(width){
     var cart =localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
@@ -145,8 +144,8 @@ function showCart(width){
             var div = createNode("div", '', {className: "sectionProp"});
 
             var editQuantityButton = document.createElement("input");
-            editQuantityButton.type = "number";
-            editQuantityButton.min = 0;
+            //editQuantityButton.type = "number";
+            //editQuantityButton.min = 0;
             editQuantityButton.value=cart[i].quantity; 
             editQuantityButton.id=cart[i].id;
             editQuantityButton.classList.add("editQuantity");
