@@ -54,6 +54,7 @@ h4{
 
 #myForm{
     border: solid rgb(23, 172, 172) 1px; 
+    background-color: rgba(248, 244, 244, 0.308);
     width: 35%; 
     height: 50%;
     padding: 10px;
@@ -96,6 +97,7 @@ h4{
 
 blockquote p{
     font-size: 16px;
+    text-align: justify;
 }
 
 .message{
@@ -212,7 +214,7 @@ blockquote p{
     }
 
     .card-header div{
-        font-size: 14px;
+        font-size: 15px;
     }
 
 }
@@ -233,7 +235,7 @@ blockquote p{
     }
 
     #carouselExampleCaptions{
-        width: 70%;
+        width: 75%;
     }
 
     #titleForm{
@@ -242,6 +244,11 @@ blockquote p{
 
     #promocion{
         font-size: 15px; 
+    }
+
+    #promocion span{
+        font-size: 14px; 
+        
     }
 
     .card{
@@ -253,7 +260,7 @@ blockquote p{
     }
 
     .card-header div{
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .btn{
@@ -261,7 +268,7 @@ blockquote p{
     }
 
     footer{
-        font-size: 13px;
+        font-size: 14px;
     }
     
     #footerTitle{
@@ -276,24 +283,29 @@ blockquote p{
     }
 
     #carouselExampleCaptions{
-        width: 80%;
+        width: 90%;
     }
 
     #myForm{
         width: 85%;
         align-self: center;
-        font-size: 14px;
+        font-size: 15px;
+
     }
 
     #titleForm{
-        font-size: 15px; 
+        font-size: 16px; 
     }
 
     .btn{
-        font-size: 13px;
+        font-size: 14px;
     }
 
     #promocion{
+        font-size: 15px; 
+    }
+
+    #promocion span{
         font-size: 14px; 
     }
 
@@ -302,11 +314,11 @@ blockquote p{
     }
 
     .blockquote p{
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .card-header div{
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .card{
@@ -314,7 +326,7 @@ blockquote p{
     }
 
     footer{
-        font-size: 13px;
+        font-size: 14px;
     }
     
     #footerTitle{

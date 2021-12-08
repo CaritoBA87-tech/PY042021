@@ -5,7 +5,7 @@ function start(){
     var props=[
         {id: 1, name:"Banda elástica" , price: 310 , description:"Material: Poliéster. Tamaño: 3.8x183cm/0.12x6ft. ", img: "assets/images/prop1.png"},
         {id: 2, name:"Bloques de yoga" , price: 520 , description:"Material: EVA. Tamaño: aproximadamente 23 x 15 x 8 cm (largo x ancho x alto).",  img: "assets/images/prop2.png" },
-        {id: 3, name:"Kit de accesorios de elongación" , price: 1160 , description:"Material: NBR + algodón + EVA.",  img: "assets/images/prop3.png" },
+        {id: 3, name:"Kit de accesorios de elongación " , price: 1160 , description:"Material: NBR + algodón + EVA.",  img: "assets/images/prop3.png" },
         {id: 4, name:"Bloques de yoga" , price: 750 , description:"Antideslizante, evita deslizamientos y deslizamientos durante el uso.",  img: "assets/images/prop4.png" },
         {id: 5, name:"Tapete X-10" , price: 550 , description:"Material: Mezcla sintética. 173 cm x 61 cm x 0.6 cm aproximado.",  img: "assets/images/prop5.png" },
         {id: 6, name:"Pelota Wilson" , price: 430 , description:"65 cm de diámetro aproximado." ,  img: "assets/images/prop6.png"},

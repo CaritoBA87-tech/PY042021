@@ -37,6 +37,8 @@ td{
   font-weight: bold;
   background-color: #ece7e7;
   color:#BA41A8;
+  padding: 5px;
+  padding-right: 15px;
 }
 
 #empty{
@@ -60,6 +62,81 @@ td{
 }
 
 .editQuantity{
-  width: 40px;
+  width: 50px;
   height: 20px;
+}
+
+@media (min-width: 481px) and (max-width: 700px) {
+
+  #cartTable{
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    padding: 20px;
+    width: 90%;
+    font-size: 15px;
+    border: #19899F solid 1px; 
+  }
+
+  .sectionProp{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+
+  .remove{
+    width: 80px;
+    font-size: 13px;
+  }
+
+  .propName{
+    display: block;
+    font-weight: bold;
+    background-color: #188499;
+    color:white;
+    padding: 5px;
+    padding-left: 10px;
+  }
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  #cartTable{
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 97%;
+    font-size: 14px;
+    border: #19899F solid 1px; 
+  }
+
+  .sectionProp{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+
+  .remove{
+    width: 40px;
+    font-size: 13px;
+  }
+
+  .propName{
+    display: block;
+    font-weight: bold;
+    background-color: #188499;
+    color:white;
+    padding: 5px;
+    padding-left: 10px;
+  }
+
 }

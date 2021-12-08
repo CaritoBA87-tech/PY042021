@@ -1,8 +1,8 @@
 function start(){  
     load_menu();  
     resizeCart();
-    //showCart();
 }
+
 
 //Muestra los productos en el carrito de compras
 function showCart(width){
@@ -25,102 +25,190 @@ function showCart(width){
     const options2 = { style: 'currency', currency: 'USD' };
     const numberFormat2 = new Intl.NumberFormat('en-US', options2);
 
-    var length = width >= 1025 && width<=1280 ? "regular" :  "large";
+    if (width >= 768) {
 
-    var table = document.createElement("table");
-    table.style.fontSize = length == "regular" ? "17px" : "18px";
-    table.style.width = length == "regular" ? "97%" : "90%";
+        var length = (width > 1280) ? "large" : ((width >= 1025 && width<=1280) ? "regular" : "small");
 
-    var thead = document.createElement("thead");
-    var tbody = document.createElement("tbody");
+        var table = document.createElement("table");
+        table.style.fontSize = (length == "large") ? "17px" : ((length == "regular") ? "16px" : "16px");
+        table.style.width = (length == "large") ? "90%" : ((length == "regular") ? "97%" : "94%");
 
-    for(var i=0; i<heads.length; i++){
-        var th  = document.createElement("th");
-        th.textContent = heads[i];
-        thead.appendChild(th);
-    }
+        var thead = document.createElement("thead");
+        var tbody = document.createElement("tbody");
 
-    table.appendChild(thead);
+        for(var i=0; i<heads.length; i++){
 
-    for(var i=0; i<cart.length; i++){
-        var tr  = document.createElement("tr");
+            if(width <= 1024 && heads[i] == "Descripción")
+                continue; 
 
-        properties.forEach(function(item){
+            var th  = document.createElement("th");
+            th.textContent = heads[i];
+            thead.appendChild(th);
+        }
+
+        table.appendChild(thead);
+
+        for(var i=0; i<cart.length; i++){
+            var tr  = document.createElement("tr");
+
+            properties.forEach(function(item){
+                var td  = document.createElement("td");
+
+                if(width <= 1024 && item == "description")
+                    return; 
+
+                if(item=="quantity")
+                {
+                    var editQuantityButton = document.createElement("input");
+                    editQuantityButton.type = "number";
+                    editQuantityButton.min = 0;
+                    editQuantityButton.value=cart[i][item];
+                    editQuantityButton.id=cart[i].id;
+                    editQuantityButton.classList.add("editQuantity");
+                    editQuantityButton.style.fontSize = (length == "large") ? "17px" : ((length == "regular") ? "16px" : "15px");
+
+                    editQuantityButton.addEventListener("change", function(e){
+                        if (isNaN(e.target.value) || e.target.value < 0)
+                            return;
+
+                        var item = cart.find(item =>  item.id == e.target.id);
+                        item.quantity = parseInt(e.target.value);
+                        refreshSessionData(cart);
+                        var width = window.outerWidth;
+                        showCart(width);
+                    });
+
+                    td.appendChild(editQuantityButton);
+                }
+
+                else
+                {
+                    td.textContent = item == "price" ? numberFormat2.format(cart[i][item])  : cart[i][item];
+                    td.style.textAlign = item == "price" ? "right" : "";    
+                }
+
+                tr.appendChild(td);
+            });
+
             var td  = document.createElement("td");
+            var removeButton = document.createElement("button");
+            removeButton.innerHTML = "Eliminar";
+            removeButton.id = cart[i].id;
+            removeButton.classList = "remove";
+            removeButton.style.fontSize = (length == "large") ? "16px" : ((length == "regular") ? "15px" : "14px");
 
-            if(item=="quantity")
-            {
-                var editQuantityButton = document.createElement("input");
-                editQuantityButton.type = "number";
-                editQuantityButton.min = 0;
-                editQuantityButton.value=cart[i][item];
-                editQuantityButton.id=cart[i].id;
-                editQuantityButton.classList.add("editQuantity");
-                editQuantityButton.style.fontSize = length == "regular" ? "17px" : "18px";
+            //Elimina un producto del carrito de compras
+            removeButton.addEventListener("click", function(e){
+                var index = cart.findIndex(prop => prop.id == e.target.id);
+                cart.splice(index, 1);
+                refreshSessionData(cart);
+                showCart(); 
+            });
 
-                editQuantityButton.addEventListener("change", function(e){
-                    if (isNaN(e.target.value) || e.target.value < 0)
-                        return;
-
-                    var item = cart.find(item =>  item.id == e.target.id);
-                    item.quantity = parseInt(e.target.value);
-                    refreshSessionData(cart);
-                    var width = window.outerWidth;
-                    showCart(width);
-                });
-
-                td.appendChild(editQuantityButton);
-            }
-
-            else
-            {
-                td.textContent = item == "price" ? numberFormat2.format(cart[i][item])  : cart[i][item];
-                td.style.textAlign = item == "price" ? "right" : "";    
-            }
-
+            td.appendChild(removeButton);
             tr.appendChild(td);
-        });
 
-        var td  = document.createElement("td");
-        var removeButton = document.createElement("button");
-        removeButton.innerHTML = "Eliminar";
-        removeButton.id = cart[i].id;
-        removeButton.classList = "remove";
-        removeButton.style.fontSize = length == "regular" ? "15px" : "16px";
+            td  = document.createElement("td");
+            td.classList = "partialPrice";
+            var partialPrice = parseInt(cart[i].price) * cart[i].quantity
+            td.textContent = numberFormat2.format(partialPrice);
+            total += partialPrice;
+            tr.appendChild(td);
 
-        //Elimina un producto del carrito de compras
-        removeButton.addEventListener("click", function(e){
-            var index = cart.findIndex(prop => prop.id == e.target.id);
-            cart.splice(index, 1);
-            refreshSessionData(cart);
-            showCart(); 
-        });
+            tbody.appendChild(tr);
+        }
 
-        td.appendChild(removeButton);
+        var tr  = document.createElement("tr");
+        var td = document.createElement("td");
+        td.classList = "total";
+        td.colSpan = "6";
+        td.style.textAlign = "right";
+        td.textContent = numberFormat2.format(total);
         tr.appendChild(td);
-
-        td  = document.createElement("td");
-        td.classList = "partialPrice";
-        var partialPrice = parseInt(cart[i].price) * cart[i].quantity
-        td.textContent = numberFormat2.format(partialPrice);
-        total += partialPrice;
-        tr.appendChild(td);
-
         tbody.appendChild(tr);
+
+        table.appendChild(tbody);
+
+        document.getElementById("cartTable").appendChild(table);
     }
 
-    var tr  = document.createElement("tr");
-    var td = document.createElement("td");
-    td.classList = "total";
-    td.colSpan = "6";
-    td.style.textAlign = "right";
-    td.textContent = numberFormat2.format(total);
-    tr.appendChild(td);
-    tbody.appendChild(tr);
+    else{
+        
+        for(var i=0; i<cart.length; i++){
 
-    table.appendChild(tbody);
+            var section = createNode("section", '', );
 
-    document.getElementById("cartTable").appendChild(table);
+            var span = createNode("span", '', {className: "propName"});
+            span.textContent = cart[i].name;
+            section.appendChild(span);
+
+            var div = createNode("div", '', {className: "sectionProp"});
+
+            var editQuantityButton = document.createElement("input");
+            editQuantityButton.type = "number";
+            editQuantityButton.min = 0;
+            editQuantityButton.value=cart[i].quantity; 
+            editQuantityButton.id=cart[i].id;
+            editQuantityButton.classList.add("editQuantity");
+
+            editQuantityButton.addEventListener("change", function(e){
+                if (isNaN(e.target.value) || e.target.value < 0)
+                    return;
+
+                var item = cart.find(item =>  item.id == e.target.id);
+                item.quantity = parseInt(e.target.value);
+                refreshSessionData(cart);
+                var width = window.outerWidth;
+                showCart(width);
+            });
+            
+            div.appendChild(editQuantityButton);
+
+            var spanPrice = createNode("span", '');
+            spanPrice.textContent = numberFormat2.format(cart[i].price);
+            div.appendChild(spanPrice);
+
+            var removeButton = document.createElement("button");
+            removeButton.id = cart[i].id;
+            removeButton.classList = "remove";
+
+            if(width>480)
+                removeButton.innerHTML = "Eliminar";
+
+            else {
+                var icon = document.createElement("span");
+                icon.className ="fa fa-trash";
+                removeButton.appendChild(icon);
+            }
+
+            //Elimina un producto del carrito de compras
+            removeButton.addEventListener("click", function(e){
+                var index = cart.findIndex(prop => prop.id == e.target.id);
+                cart.splice(index, 1);
+                refreshSessionData(cart);
+                showCart(); 
+            });
+
+            div.appendChild(removeButton);
+
+            var spanPartial = document.createElement("span");
+            spanPartial.classList = "partialPrice";
+            var partialPrice = parseInt(cart[i].price) * cart[i].quantity;
+            spanPartial.textContent = numberFormat2.format(partialPrice);
+            total += partialPrice;
+            div.appendChild(spanPartial);
+
+            section.appendChild(div);
+
+            document.getElementById("cartTable").appendChild(section);
+        }
+
+        div = document.createElement("div");
+        div.classList = "total";
+        div.style.textAlign = "right";
+        div.textContent = numberFormat2.format(total);
+        document.getElementById("cartTable").appendChild(div);
+    }
 }
 
 //Actualiza los datos en sessionStorage
@@ -133,28 +221,28 @@ function refreshSessionData(cart){
 
 function resizeCart(){
     var width = window.outerWidth;
+    showCart(width);
+}
 
-    if (width>1280){
-        showCart(width);
-        document.body.style.backgroundColor = "gainsboro";
+//Crea un nodo (type), con un hijo (child) y atributos (attr)
+function createNode(type, child, attr) { 
+    var element = document.createElement(type);
+ 
+    if(attr) {
+        Object.keys(attr).map( at =>{ 
+            element[at] = attr[at]; 
+        });
     }
 
-    else if(width>=1025 && width<=1280){
-        showCart(width);
-        document.body.style.backgroundColor = "red";
+    if(typeof child === "string") { 
+        var texto = document.createTextNode(child); 
+        element.appendChild(texto);
     }
 
-    else if(width>=768 && width<=1024) {
-        document.body.style.backgroundColor = "green";
-    }
+    else 
+        element.appendChild(child); 
 
-    else if(width>=481 && width<=767){
-        document.body.style.backgroundColor = "yellow";
-    }
-
-    else if(width>=320 && width<=480) {
-        document.body.style.backgroundColor = "orange";
-    }
+        return element;               
 }
 
 
