@@ -144,7 +144,7 @@ function showCart(width){
             var div = createNode("div", '', {className: "sectionProp"});
 
             var editQuantityButton = document.createElement("input");
-            //editQuantityButton.type = "number";
+            editQuantityButton.type = "text";
             //editQuantityButton.min = 0;
             editQuantityButton.value=cart[i].quantity; 
             editQuantityButton.id=cart[i].id;
