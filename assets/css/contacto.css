@@ -165,6 +165,10 @@ blockquote p{
         font-size: 16px;
     }
 
+    .message{
+        font-size: 15px;
+    }
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -216,6 +220,10 @@ blockquote p{
     .card-header div{
         font-size: 15px;
     }
+
+    .message{
+        font-size: 14px;
+      }
 
 }
 
@@ -274,6 +282,10 @@ blockquote p{
     #footerTitle{
         font-size: 14px;
     }
+
+    .message{
+        font-size: 13px;
+      }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -332,6 +344,10 @@ blockquote p{
     #footerTitle{
         font-size: 14px;
     }
+
+    .message{
+        font-size: 12px;
+      }
 
 }
 
