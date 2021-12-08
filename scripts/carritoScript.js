@@ -149,6 +149,7 @@ function showCart(width){
             editQuantityButton.value=cart[i].quantity; 
             editQuantityButton.id=cart[i].id;
             editQuantityButton.classList.add("editQuantity");
+            editQuantityButton.classList.add("form-control");
 
             editQuantityButton.addEventListener("change", function(e){
                 if (isNaN(e.target.value) || e.target.value < 0)
