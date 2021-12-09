@@ -6,12 +6,8 @@ body{
 
 #container{
     display: flex;
-}
-
-.list-group{
-    font-size: 17px;
-    width: 23%;
-    margin: 25px;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #instructorDetail{
@@ -20,11 +16,6 @@ body{
     width: 70%;
     border:#19899F solid 1px; 
     padding: 20px;
-}
-
-.list-group-item{
-    height: 40px;
-    color:black;
 }
 
 #instructorContainer{
@@ -42,7 +33,7 @@ body{
 #instructorDescription{
     font-size: 17px;
     padding: 20px; 
-    width: 40%; 
+    width: 50%; 
     text-align: justify;
 }
 
@@ -67,4 +58,214 @@ li{
     border-top: #BA41A8 dashed 1px; 
     width: 50%;
     font-size: 18px;
+}
+
+#instructorList{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 25%;
+    padding: 5px;
+    margin-top: 20px;
+    background-color: gainsboro;
+}
+
+#navbarNav2{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid teal;
+}
+
+.nav-link:hover{
+    cursor: pointer;
+}
+
+#navbarNav{
+    width: 100%;
+}
+
+#navbarNav2{
+    width: 100%;
+}
+
+#instructorList .nav-item{
+    margin:0;
+    background-color: white;
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 17px;
+}
+
+#instructorList .nav-link{
+    color: black;
+}
+
+.navbar-toggler{
+    background-color: white;
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    #instructorContainer{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    #instructorList .nav-item{
+        font-size: 16px;
+    }
+
+    #instructorName{
+        font-size: 21px;
+    }
+
+    #instructorDescription{
+        font-size: 16px;
+        width: 90%;
+    }
+
+    h5{
+        font-size: 17px;
+    }
+
+    #classesList li{
+        font-size: 16px;
+    }
+
+    #instructorImg{
+        margin-top: 10px;
+        width: 47%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    #instructorList .nav-item{
+        font-size: 15px;
+    }
+
+    #instructorName{
+        font-size: 20px;
+    }
+
+    #instructorDescription{
+        font-size: 16px;
+        width: 90%;
+    }
+
+    h5{
+        font-size: 17px;
+    }
+
+    #classesList li{
+        font-size: 16px;
+    }
+
+    #instructorContainer{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    #instructorImg{
+        margin-top: 10px;
+        width: 50%;
+    }
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    #instructorContainer{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    #container{
+        flex-direction: column;  
+    }
+
+    #instructorDetail{
+        width: 93%;
+        align-self: center;
+    }
+
+    #instructorName{
+        font-size: 19px;
+    }
+
+    #instructorDescription{
+        font-size: 15px;
+        width: 95%;
+    }
+
+    h5{
+        font-size: 16px;
+    }
+
+    #classesList li{
+        font-size: 15px;
+    }
+
+    #instructorList{
+        margin-left: 12px;
+        width: 40%;
+    }
+
+    #instructorList .nav-item{
+        font-size: 14px;
+    }
+
+    #instructorImg{
+        margin-top: 10px;
+        width: 50%;
+    }
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    #container{
+        flex-direction: column;  
+    }
+
+    #instructorDetail{
+        width: 97%;
+        align-self: center;
+    }
+
+    #instructorName{
+        font-size: 17px;
+    }
+
+    #instructorDescription{
+        font-size: 14px;
+        width: 95%;
+    }
+
+    h5{
+        font-size: 15px;
+    }
+
+    #classesList li{
+        font-size: 14px;
+    }
+
+    #instructorList{
+        margin-left: 12px;
+        width: 40%;
+    }
+
+    #instructorList .nav-item{
+        font-size: 13px;
+    }
+
+    #instructorContainer{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    #instructorImg{
+        margin-top: 10px;
+        width: 65%;
+    }
 }

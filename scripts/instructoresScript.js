@@ -9,21 +9,27 @@ function get_instructors(){
     })
         .then(response => response.json())
         .then(data => {
+            var ul = document.getElementsByClassName("navbar-nav")[0];
+
             for (let i = 0; i < data.length; i++) {
-                var button = createNode("button", "", {className: "list-group-item list-group-item-action", myParam: data[i].id.toString(), onclick: showDetail})
-                button.innerHTML = data[i].nombre + " " + data[i].apellido;
-                document.getElementById("instructorList").appendChild(button);
+
+                var li = createNode("li", "", {className: "nav-item"})
+                var div = createNode("div", "", {className: "nav-link", myParam: data[i].id.toString(), onclick: showDetail})
+                div.innerText = data[i].nombre + " " + data[i].apellido;
+                li.appendChild(div);               
+                ul.appendChild(li);
             }
 
-            var element = document.getElementsByClassName("list-group-item");
-            element[0].click();
+            var element = document.querySelectorAll("#navbarNav2 div"); //document.getElementsByClassName("nav-link");
+            var abc = element[0].click();
         });
-}
+} 
 
 function showDetail(e){
     var idSelected = e.target.myParam;
 
-    var elements = document.getElementsByClassName("list-group-item");
+    var elements = document.querySelectorAll("#instructorList .nav-link")
+
     for (var i=0; i<elements.length; i++){
         elements[i].style.backgroundColor = "white";
         elements[i].style.color = "black";
