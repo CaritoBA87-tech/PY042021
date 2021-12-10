@@ -308,7 +308,7 @@ blockquote p{
     #myForm{
         width: 85%;
         align-self: center;
-        font-size: 15px;
+        font-size: 16px;
 
     }
 
@@ -321,11 +321,11 @@ blockquote p{
     }
 
     #promocion{
-        font-size: 15px; 
+        font-size: 16px; 
     }
 
     #promocion span{
-        font-size: 14px; 
+        font-size: 15px; 
     }
 
     #cards {
@@ -333,11 +333,11 @@ blockquote p{
     }
 
     .blockquote p{
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .card-header div{
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .card{
