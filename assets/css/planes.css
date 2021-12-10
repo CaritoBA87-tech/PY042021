@@ -1,7 +1,7 @@
 body{
     background-color: gainsboro;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
+}
 
 #plansContainer{
     margin-top: 30px;
@@ -16,7 +16,7 @@ body{
 
 .planContainer{
     margin-bottom: 40px;
-    border-bottom: 1px solid #127e94;
+    border-bottom: 2px solid gray;
     padding-bottom: 20px;
 }
 
@@ -89,7 +89,7 @@ body{
     margin-top: 30px;
     margin-bottom: 20px;
     padding-bottom: 20px;
-    width: 70%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto; 
     border-bottom: 1px dashed #19899F ;
@@ -138,4 +138,175 @@ body{
     text-decoration: underline;
 }
 
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    #plansContainer{
+        width: 80%;
+    }
+
+    #planDetailContainer{
+        width: 87%;
+    }
+
+    .containerSchedule{
+        font-size: 16px;
+        width: 90%;
+    }
+
+    .planTitle{
+        font-size: 21px;
+    }
+
+    .planPrice{
+        font-size: 17px;
+    }
+
+    .planDetail{
+        font-size: 17px;
+     }
+
+     .planDescription{
+        font-size: 17px;
+    }
+
+    .return{
+        font-size: 17px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    #plansContainer{
+        width: 87%;
+    }
+
+    .containerSchedule{
+        width: 90%;
+        font-size: 15px;
+    }
+
+    #planDetailContainer{
+        width: 93%;
+    }
+
+    .planTitle{
+        font-size: 20px;
+    }
+
+    .planPrice{
+        font-size: 17px;
+    }
+
+    .planDetail{
+        font-size: 17px;
+     }
+
+     .planDescription{
+        font-size: 16px;
+    }
+
+    .return{
+        font-size: 17px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    .containerSchedule{
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        font-size: 14px;
+    }
+
+    #planDetailContainer{
+        width: 93%;
+    }
+
+    #plansContainer{
+        width: 90%;
+    }
+
+    .planTitle{
+        font-size: 18px;
+    }
+
+    .planPrice{
+        font-size: 15px;
+    }
+
+    .planDetail{
+        font-size: 15px;
+     }
+
+     .planDescription{
+        font-size: 15px;
+    }
+
+    .return{
+        font-size: 15px;
+    }
+    
+    .headerInstructor{
+        display: none;
+    }
+
+    .instructor
+    {
+        display: none;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .containerSchedule{
+        width: 100%;
+        font-size: 14px;
+    }
+
+    #planDetailContainer{
+        width: 97%;
+    }
+
+    .return{
+        font-size: 14px;
+    }
+
+    #plansContainer{
+        width: 90%;
+    }
+
+    .planTitle{
+        font-size: 15.5px;
+    }
+
+    .planPrice{
+        font-size: 15px;
+    }
+
+    .planDetail{
+        font-size: 15px;
+     }
+
+     .planDescription{
+        font-size: 14px;
+    }
+
+    .return{
+        font-size: 14px;
+    }
+
+    .containerSchedule{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .headerInstructor{
+        display: none;
+    }
+
+    .instructor
+    {
+        display: none;
+    }
+}
 

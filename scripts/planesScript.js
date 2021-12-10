@@ -54,7 +54,7 @@ function show_plans(){
                 document.getElementById("plansContainer").appendChild(div);
             }
         });
-}
+} 
 
 //Crea un nodo (type), con un hijo (child) y atributos (attr)
 function createNode(type, child, attr) { 
@@ -120,7 +120,9 @@ function showDetail(e){
             span.innerText = "Clase";
             section.appendChild(span);
 
-            span =  createNode("span", '', {className: "header"});
+            span =  createNode("span", '');
+            span.classList.add("header");
+            span.classList.add("headerInstructor");
             span.innerText = "Instructor";
             section.appendChild(span);
 
@@ -148,26 +150,6 @@ function showDetail(e){
                 }
             }
 
-            /*for(var i=0; i<data["horario"].length; i++){
-                span =  createNode("span", '', {className: "day"});
-                span.innerText = dias[data["horario"][i].dia];
-                section.appendChild(span);
-
-                span =  createNode("span", '', {className: "hour"});
-                span.innerText = (data["horario"][i].inicio).substring(0, 5) + " - " + (data["horario"][i].fin).substring(0, 5);
-                section.appendChild(span);
-
-                span =  createNode("span", '', {className: "session"});
-                span.innerText = data["horario"][i].clase + " ";
-
-                section.appendChild(span);
-
-                span =  createNode("span", '', {className: "instructor"});
-                span.innerText = data["horario"][i].instructor + " ";
-
-                section.appendChild(span);
-            } */
-
             container.appendChild(section);
     }); 
-}
+} 
