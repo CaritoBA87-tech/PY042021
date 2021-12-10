@@ -76,8 +76,9 @@ body {
 .card h2 {
   color: #19899F;
   text-align: center;
-  font-family: monospace;
-  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  margin-top: 8px;
 }
 .card p {
   color: #2C3E50;
@@ -230,7 +231,7 @@ body {
     font-size: 17px;
   }
   .card p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   #schedule {
@@ -265,7 +266,7 @@ body {
     font-size: 18px;
   }
   .card p {
-    font-size: 15px;
+    font-size: 16px;
   }
   .card img {
     width: 75%;
@@ -318,7 +319,7 @@ body {
     font-size: 17px;
   }
   .card p {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 /* ##Device = Most of the Smartphones Mobiles (Portrait)
@@ -345,7 +346,7 @@ body {
     font-size: 17px;
   }
   .card p {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .day {
