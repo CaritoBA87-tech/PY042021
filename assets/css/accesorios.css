@@ -258,7 +258,7 @@ body{
 @media (min-width: 320px) and (max-width: 480px) {
   #container{
     grid-template-columns: repeat(2, 1fr);
-    font-size: 14px;
+    font-size: 15px;
     padding: 0;
   }
 
@@ -273,7 +273,7 @@ body{
   }
 
   #details p{
-    font-size: 14px;
+    font-size: 15px;
   }
 
   #addToCart {
@@ -287,7 +287,7 @@ body{
 
   #details div{
     text-align: center;
-    font-size: 14px;
+    font-size: 15px;
   }
 
   #modal-image{
