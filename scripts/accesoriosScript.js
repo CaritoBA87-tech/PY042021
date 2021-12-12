@@ -4,21 +4,6 @@ function start(){
 
     var props=[];
 
-    /*var props=[
-        {id: 1, name:"Banda elástica" , price: 310 , description:"Material: Poliéster. Tamaño: 3.8x183cm/0.12x6ft. ", img: "assets/images/prop1.png"},
-        {id: 2, name:"Bloques de yoga" , price: 520 , description:"Material: EVA. Tamaño: aproximadamente 23 x 15 x 8 cm (largo x ancho x alto).",  img: "assets/images/prop2.png" },
-        {id: 3, name:"Kit de accesorios de elongación " , price: 1160 , description:"Material: NBR + algodón + EVA.",  img: "assets/images/prop3.png" },
-        {id: 4, name:"Bloques de yoga" , price: 750 , description:"Antideslizante, evita deslizamientos y deslizamientos durante el uso.",  img: "assets/images/prop4.png" },
-        {id: 5, name:"Tapete X-10" , price: 550 , description:"Material: Mezcla sintética. 173 cm x 61 cm x 0.6 cm aproximado.",  img: "assets/images/prop5.png" },
-        {id: 6, name:"Pelota Wilson" , price: 430 , description:"65 cm de diámetro aproximado." ,  img: "assets/images/prop6.png"},
-        {id: 7, name:"Accesorios Trx" , price: 320 , description:"Material: Nailon. Peso máximo soportado: 350 lb" ,  img: "assets/images/prop7.png"},
-        {id: 8, name:"Mat de yoga" , price: 400 , description:"Material: PVC. Medidas: 173 cm x 61 cm x 6 cm aproximado." ,  img: "assets/images/prop8.png"},
-        {id: 9, name:"Pelota Sunny Health & Fitness" , price: 550 , description:"Peso: 1.81 Kg. Incluye bomba para inflado." ,  img: "assets/images/prop9.png"},
-        {id: 10, name:"Correa de estiramiento" , price: 330 , description:"Material: algodón y fibra de poliéster. Tamaño: 183 * 3.8 cm." ,  img: "assets/images/prop10.png"},
-        {id: 11, name:"Kit de accesorios" , price: 2000 , description:"Incluye 2 bloques." ,  img: "assets/images/prop11.png"},
-        {id: 12, name:"Toalla de yoga" , price: 500 , description:"Toalla antideslizante de microfibra absorbente suave." ,  img: "assets/images/prop12.png"},
-    ]; */
-
     var cart =localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
     var quantity = 0;
 
