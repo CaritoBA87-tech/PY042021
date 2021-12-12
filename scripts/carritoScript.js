@@ -18,7 +18,7 @@ function showCart(width){
     }
 
     var heads = ["Nombre", "Descripción", "Cantidad", "Precio", "",  "Total"];
-    var properties = ["name", "description", "quantity",  "price"];
+    var properties = ["nombre", "descripcion", "quantity",  "precio"];
     var total = 0;
 
     const options2 = { style: 'currency', currency: 'USD' };
@@ -53,7 +53,7 @@ function showCart(width){
             properties.forEach(function(item){
                 var td  = document.createElement("td");
 
-                if(width <= 1024 && item == "description")
+                if(width <= 1024 && item == "descripcion")
                     return; 
 
                 if(item=="quantity")
@@ -82,8 +82,8 @@ function showCart(width){
 
                 else
                 {
-                    td.textContent = item == "price" ? numberFormat2.format(cart[i][item])  : cart[i][item];
-                    td.style.textAlign = item == "price" ? "right" : "";    
+                    td.textContent = item == "precio" ? numberFormat2.format(cart[i][item])  : cart[i][item];
+                    td.style.textAlign = item == "precio" ? "right" : "";    
                 }
 
                 tr.appendChild(td);
@@ -101,7 +101,7 @@ function showCart(width){
                 var index = cart.findIndex(prop => prop.id == e.target.id);
                 cart.splice(index, 1);
                 refreshSessionData(cart);
-                showCart(); 
+                showCart(width); 
             });
 
             td.appendChild(removeButton);
@@ -109,7 +109,7 @@ function showCart(width){
 
             td  = document.createElement("td");
             td.classList = "partialPrice";
-            var partialPrice = parseInt(cart[i].price) * cart[i].quantity
+            var partialPrice = parseInt(cart[i].precio) * cart[i].quantity
             td.textContent = numberFormat2.format(partialPrice);
             total += partialPrice;
             tr.appendChild(td);
@@ -138,7 +138,7 @@ function showCart(width){
             var section = createNode("section", '', );
 
             var span = createNode("span", '', {className: "propName"});
-            span.textContent = cart[i].name;
+            span.textContent = cart[i].nombre;
             section.appendChild(span);
 
             var div = createNode("div", '', {className: "sectionProp"});
@@ -166,7 +166,7 @@ function showCart(width){
             div.appendChild(editQuantityButton);
 
             var spanPrice = createNode("span", '');
-            spanPrice.textContent = numberFormat2.format(cart[i].price);
+            spanPrice.textContent = numberFormat2.format(cart[i].precio);
             div.appendChild(spanPrice);
 
             var removeButton = document.createElement("button");
@@ -187,14 +187,14 @@ function showCart(width){
                 var index = cart.findIndex(prop => prop.id == e.target.id);
                 cart.splice(index, 1);
                 refreshSessionData(cart);
-                showCart(); 
+                showCart(width); 
             });
 
             div.appendChild(removeButton);
 
             var spanPartial = document.createElement("span");
             spanPartial.classList = "partialPrice";
-            var partialPrice = parseInt(cart[i].price) * cart[i].quantity;
+            var partialPrice = parseInt(cart[i].precio) * cart[i].quantity;
             spanPartial.textContent = numberFormat2.format(partialPrice);
             total += partialPrice;
             div.appendChild(spanPartial);

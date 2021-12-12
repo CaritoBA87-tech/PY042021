@@ -9,7 +9,7 @@ function get_aficions(){
         method: "GET",
         credentials: "same-origin",
         headers: {
-            "X-CSRFToken": getCookie("csrftoken"),
+            "X-CSRFToken": getCookie(""),
             "Accept": "application/json",
             "Content-Type": "application/json"
         }

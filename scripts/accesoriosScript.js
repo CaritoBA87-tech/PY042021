@@ -2,7 +2,9 @@ function start(){
 
     load_menu(); 
 
-    var props=[
+    var props=[];
+
+    /*var props=[
         {id: 1, name:"Banda elástica" , price: 310 , description:"Material: Poliéster. Tamaño: 3.8x183cm/0.12x6ft. ", img: "assets/images/prop1.png"},
         {id: 2, name:"Bloques de yoga" , price: 520 , description:"Material: EVA. Tamaño: aproximadamente 23 x 15 x 8 cm (largo x ancho x alto).",  img: "assets/images/prop2.png" },
         {id: 3, name:"Kit de accesorios de elongación " , price: 1160 , description:"Material: NBR + algodón + EVA.",  img: "assets/images/prop3.png" },
@@ -15,7 +17,7 @@ function start(){
         {id: 10, name:"Correa de estiramiento" , price: 330 , description:"Material: algodón y fibra de poliéster. Tamaño: 183 * 3.8 cm." ,  img: "assets/images/prop10.png"},
         {id: 11, name:"Kit de accesorios" , price: 2000 , description:"Incluye 2 bloques." ,  img: "assets/images/prop11.png"},
         {id: 12, name:"Toalla de yoga" , price: 500 , description:"Toalla antideslizante de microfibra absorbente suave." ,  img: "assets/images/prop12.png"},
-    ];
+    ]; */
 
     var cart =localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
     var quantity = 0;
@@ -37,22 +39,49 @@ function start(){
         addToCart();
     });
 
-    //var container = createNode("section", '', {id: "container"});
     var container = document.getElementById("container");
-    //document.body.appendChild(container);   
 
     var propSelected={};
 
-    for(var i=0; i<props.length; i++){
-        var div = createNode("div", '', {className: "containerProp", myParam: props[i].id.toString() , onclick: showDetail });
-        var img = createNode("img", '', {className: "imageProp"});
-        img.src= props[i].img;
-        div.appendChild(img);
-        div.appendChild(createNode("span", props[i].name));
-        var precio = numberFormat2.format(props[i].price);
-        div.appendChild(createNode("span",  precio, {className: "priceProp"}));
-        container.appendChild(div);
-    }
+    const query = 
+        `query {
+        allAccessories 
+            {
+                id
+                nombre
+                precio
+                descripcion
+                img
+            }
+        }`;
+
+    fetch('https://app-mandala.herokuapp.com/graphql', {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({query}),       
+    }).then(function(response) {
+        return response.json();
+    }).then(function(data) {
+       
+        props = data["data"]["allAccessories"];
+
+        for(var i=0; i<props.length; i++){
+            var div = createNode("div", '', {className: "containerProp", myParam: props[i].id.toString() , onclick: showDetail });
+            var img = createNode("img", '', {className: "imageProp"});
+            img.src= props[i].img;
+            div.appendChild(img);
+            div.appendChild(createNode("span", props[i].nombre));
+            var precio = numberFormat2.format(props[i].precio);
+            div.appendChild(createNode("span",  precio, {className: "priceProp"}));
+            container.appendChild(div);
+        }
+
+    }).catch(function(ex) {
+        console.log("parsing failed", ex);
+    }); 
 
     //Muestra el detalle del accesorio en un modal
     function showDetail(e){
@@ -61,8 +90,8 @@ function start(){
         document.getElementById("modal").style.display = "block";
         propSelected = props.find( item =>  item.id == idSelected);
         document.getElementById("modal-image").src = propSelected.img;
-        document.querySelector("#details p").innerHTML = propSelected.name;
-        document.querySelector("#details span").innerHTML = propSelected.description + "<br> <br> " + numberFormat2.format(propSelected.price) ;
+        document.querySelector("#details p").innerHTML = propSelected.nombre;
+        document.querySelector("#details span").innerHTML = propSelected.descripcion + "<br> <br> " + numberFormat2.format(propSelected.precio) ;
     }
 
     //Agrega accesorios al carrito de compras
@@ -121,8 +150,10 @@ function showSuccess(){
 
     setTimeout(function(){
         document.querySelector('.message').classList.remove("show");
-    }, 2000); 
+    }, 2000);  
 }
+
+
 
     
     
