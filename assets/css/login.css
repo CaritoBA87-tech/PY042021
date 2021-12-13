@@ -1,0 +1,116 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: gainsboro;
+    font-size: 18px;
+}
+
+section{
+    margin-top: 40px;
+    padding: 30px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 58%;
+    border: 1px rgb(175, 172, 172) solid;
+}
+
+#titleForm{
+    font-weight: bold;
+    color:#BA41A8;
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.form-control{
+    width: 60%;
+}
+
+.btn{
+    font-size: 14px;
+    background-color: teal;
+    color: white;
+    margin-top: 15px;
+}
+
+.btn:hover{
+    background-color: rgb(18, 158, 158);
+    color: white;
+}
+
+#error{
+    display: block;
+    margin-top: 30px;
+    color:rgb(207, 7, 7);
+    font-weight: bold;
+    font-size: 17px;
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    section{
+        width: 75%;
+    }
+
+    #titleForm{
+        font-size: 18px;
+    }
+
+    #myForm{
+        font-size: 16px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    section{
+        width: 90%;
+    }
+
+    #titleForm{
+        font-size: 17px;
+    }
+
+    #myForm{
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    section{
+        width: 95%;
+    }
+
+    #titleForm{
+        font-size: 15px;
+    }
+
+    #myForm{
+        font-size: 15px;
+    }
+
+    .btn{
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    section{
+        width: 97%;
+    }
+
+    #titleForm{
+        font-size: 15px;
+    }
+
+    #myForm{
+        font-size: 15px;
+    }
+    
+    .form-control{
+        width: 80%;
+    }
+}

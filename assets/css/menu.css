@@ -51,7 +51,7 @@ nav {
 
 @media (min-width: 1025px) and (max-width: 1280px) {
   .parrafos-home {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .badge {
@@ -72,8 +72,9 @@ footer section{
 }
   
 @media (min-width: 768px) and (max-width: 1024px) {
+
   .parrafos-home {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .badge {
