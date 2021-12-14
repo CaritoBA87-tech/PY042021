@@ -4,7 +4,7 @@ function start(){
     var token = localStorage.getItem('token')
     
     if (token == null || token == "undefined")
-        window.location.href = "https://app-mandala.herokuapp.com/login.html"
+        window.location.href = "login.html"
     
     else
         get_clients();
@@ -22,7 +22,7 @@ function get_clients(){
 
         if(response.statusText == "Forbidden"){
             localStorage.removeItem('token');
-            window.location.href = "https://app-mandala.herokuapp.com/login.html"
+            window.location.href = "login.html"
             }
 
         return response.json();

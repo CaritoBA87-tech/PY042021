@@ -4,7 +4,7 @@ function start(){
     var token = localStorage.getItem('token');
     
     if (token != null && token != "undefined")
-        window.location.href = "https://app-mandala.herokuapp.com/administracion.html" 
+        window.location.href = "administracion.html" 
 }
 
 function loginUser(e){
@@ -33,7 +33,7 @@ function loginUser(e){
         if(data["access"]){
             var token =data["access"];
             localStorage.setItem('token', token);
-            window.location.href = "https://app-mandala.herokuapp.com/administracion.html"
+            window.location.href = "administracion.html"
         }
 
         else{
